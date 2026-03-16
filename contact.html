@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact — Khondokar Nazmus Sakib</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+  <style>
+    :root{--bg:#0c0f14;--surface:#13161d;--surface2:#1a1e27;--surface3:#222733;--border:#2a3040;--border2:#353d50;--text:#e8e6e3;--text2:#c5c1bb;--muted:#8a8e99;--faint:#5a6070;--accent:#c9a84c;--accent2:#e8c96a;--accent-dim:rgba(201,168,76,.12);--gradient:linear-gradient(135deg,#c9a84c 0%,#e8c96a 50%,#c9a84c 100%);--glow:0 0 30px rgba(201,168,76,.15)}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{background:var(--bg);color:var(--text);font-family:'Outfit',sans-serif;font-weight:300;overflow-x:hidden;line-height:1.6;min-height:100vh;display:flex;flex-direction:column}
+    body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.03'/%3E%3C/svg%3E");pointer-events:none;z-index:0;opacity:.5}
+
+    @keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+    @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(201,168,76,.4)}70%{box-shadow:0 0 0 10px rgba(201,168,76,0)}100%{box-shadow:0 0 0 0 rgba(201,168,76,0)}}
+    .anim-up{opacity:0;transform:translateY(30px);transition:all .7s cubic-bezier(.22,1,.36,1)}
+    .anim-up.visible{opacity:1;transform:translateY(0)}
+
+    nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(12,15,20,.85);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:0 72px;display:flex;align-items:center;justify-content:space-between;height:60px;transition:all .3s}
+    nav.scrolled{background:rgba(12,15,20,.95);box-shadow:0 4px 30px rgba(0,0,0,.3)}
+    .nav-logo{font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:500;letter-spacing:.22em;background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;text-decoration:none}
+    .nav-links{display:flex;gap:4px}
+    .nav-btn{font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);background:transparent;border:1px solid transparent;padding:8px 18px;border-radius:6px;text-decoration:none;transition:all .25s}
+    .nav-btn:hover{color:var(--accent);border-color:var(--border2)}
+    .nav-btn.active{border-color:var(--accent);color:var(--accent);background:var(--accent-dim)}
+
+    .page-header{position:relative;z-index:1;padding:120px 72px 48px;border-bottom:1px solid var(--border)}
+    .page-eyebrow{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.3em;color:var(--accent);text-transform:uppercase;margin-bottom:14px;display:inline-flex;align-items:center;gap:12px}
+    .page-eyebrow::before{content:'';width:40px;height:1px;background:var(--gradient)}
+    h1{font-family:'Playfair Display',serif;font-weight:800;font-size:clamp(36px,4.5vw,64px);line-height:1.05;color:var(--text);letter-spacing:-.02em}
+    h1 em{font-style:normal;background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .page-sub{margin-top:14px;font-size:14.5px;color:var(--muted);max-width:500px;line-height:1.75}
+
+    .contact-layout{position:relative;z-index:1;flex:1;display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);border-bottom:1px solid var(--border)}
+    .contact-info{background:var(--bg);padding:52px 56px;display:flex;flex-direction:column;gap:40px}
+    .contact-block-label{font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:.22em;color:var(--accent);text-transform:uppercase;margin-bottom:14px}
+
+    .contact-link{display:flex;align-items:center;gap:14px;text-decoration:none;color:var(--text);padding:16px 18px;border:1px solid var(--border);border-radius:10px;background:var(--surface);margin-bottom:10px;transition:all .25s}
+    .contact-link:hover{border-color:var(--accent);background:var(--surface2);transform:translateX(6px)}
+    .contact-link-icon{width:40px;height:40px;border-radius:8px;background:var(--accent-dim);border:1px solid rgba(201,168,76,.2);display:flex;align-items:center;justify-content:center;font-size:17px;flex-shrink:0}
+    .contact-link-label{font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:.14em;color:var(--faint);text-transform:uppercase;margin-bottom:2px}
+    .contact-link-value{font-size:13.5px;color:var(--text);font-weight:400}
+    .contact-link-arrow{margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:14px;color:var(--faint);transition:color .18s}
+    .contact-link:hover .contact-link-arrow{color:var(--accent)}
+
+    .availability{display:inline-flex;align-items:center;gap:10px;padding:14px 18px;border-radius:10px;border:1px solid rgba(201,168,76,.25);background:var(--accent-dim)}
+    .avail-dot{width:8px;height:8px;border-radius:50%;background:var(--accent);animation:pulse 2s infinite}
+    .avail-text{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--accent);letter-spacing:.06em}
+
+    .extras-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    .extra-card{padding:16px 18px;background:var(--surface);border:1px solid var(--border);border-radius:10px;transition:all .3s}
+    .extra-card:hover{border-color:var(--border2)}
+    .extra-label{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.16em;color:var(--faint);text-transform:uppercase;margin-bottom:5px}
+    .extra-value{font-size:12.5px;color:var(--text2);line-height:1.5}
+
+    .contact-form-panel{background:var(--surface);padding:52px 56px}
+    .form-heading{font-family:'Playfair Display',serif;font-size:24px;font-weight:700;color:var(--text);margin-bottom:6px;letter-spacing:-.01em}
+    .form-sub{font-size:13px;color:var(--muted);margin-bottom:32px;line-height:1.65}
+    .form-group{margin-bottom:20px}
+    .form-label{display:block;font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:.18em;color:var(--muted);text-transform:uppercase;margin-bottom:8px}
+    .form-input,.form-textarea,.form-select{width:100%;background:var(--bg);border:1px solid var(--border2);color:var(--text);font-family:'Outfit',sans-serif;font-size:13.5px;font-weight:300;padding:13px 16px;border-radius:8px;outline:none;transition:border-color .25s;appearance:none}
+    .form-input:focus,.form-textarea:focus,.form-select:focus{border-color:var(--accent)}
+    .form-input::placeholder,.form-textarea::placeholder{color:var(--faint)}
+    .form-textarea{resize:vertical;min-height:120px;line-height:1.65}
+    .form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+    .form-submit{display:inline-flex;align-items:center;gap:10px;background:var(--gradient);color:var(--bg);font-family:'JetBrains Mono',monospace;font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;padding:15px 28px;border:none;border-radius:8px;cursor:pointer;font-weight:500;transition:all .25s;width:100%;justify-content:center;margin-top:4px;box-shadow:0 4px 20px rgba(201,168,76,.25)}
+    .form-submit:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(201,168,76,.35)}
+    .form-note{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--faint);margin-top:14px;line-height:1.6;text-align:center}
+    .form-note a{color:var(--accent);text-decoration:none}
+    .form-success{display:none;text-align:center;padding:40px 20px}
+    .form-success-icon{font-size:48px;margin-bottom:16px;display:block}
+    .form-success h3{font-family:'Playfair Display',serif;font-size:24px;color:var(--text);margin-bottom:8px}
+    .form-success p{font-size:13.5px;color:var(--muted)}
+
+    footer{position:relative;z-index:1;padding:32px 72px;border-top:1px solid var(--border);background:var(--surface);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px}
+    .footer-text{font-family:'JetBrains Mono',monospace;font-size:10.5px;color:var(--faint)}
+    .footer-text a{color:var(--accent);text-decoration:none}
+
+    .cursor-glow{position:fixed;width:300px;height:300px;background:radial-gradient(circle,rgba(201,168,76,.04) 0%,transparent 70%);pointer-events:none;z-index:0;transform:translate(-50%,-50%);transition:left .15s,top .15s}
+
+    @media(max-width:900px){.contact-layout{grid-template-columns:1fr}.form-row{grid-template-columns:1fr}}
+    @media(max-width:720px){nav,.page-header,footer{padding-left:24px;padding-right:24px}.page-header{padding-top:100px}.contact-info,.contact-form-panel{padding:32px 24px}.nav-links{gap:2px}.nav-btn{padding:8px 10px;font-size:9px}}
+  </style>
+</head>
+<body>
+<div class="cursor-glow" id="cursor-glow"></div>
+
+<script>
+const ME={firstName:"Khondokar Nazmus",lastName:"Sakib",title:"Mechanical & Manufacturing Engineer",location:"Montreal, QC, Canada",phone:"+1 514 578 6234",email:"khondokarnazmus.sakib@mail.concordia.ca",linkedin:"https://www.linkedin.com/in/knzsakib"};
+</script>
+
+<nav id="main-nav">
+  <a class="nav-logo" href="index.html">KNS</a>
+  <div class="nav-links">
+    <a class="nav-btn" href="index.html">Home</a>
+    <a class="nav-btn" href="projects.html">Projects</a>
+    <a class="nav-btn" href="career.html">Career</a>
+    <a class="nav-btn" href="hobbies.html">Interests</a>
+    <a class="nav-btn active" href="contact.html">Contact</a>
+  </div>
+</nav>
+
+<div class="page-header">
+  <div class="page-eyebrow">Get in Touch</div>
+  <h1>Let's <em>Connect</em></h1>
+  <p class="page-sub">Open to new opportunities, collaborations, and interesting engineering challenges. Feel free to reach out.</p>
+</div>
+
+<div class="contact-layout">
+  <div class="contact-info">
+    <div class="contact-block anim-up">
+      <div class="contact-block-label">Status</div>
+      <div class="availability"><div class="avail-dot"></div><span class="avail-text">Open to opportunities</span></div>
+    </div>
+    <div class="contact-block anim-up">
+      <div class="contact-block-label">Direct Contact</div>
+      <a class="contact-link" id="link-email" href="#"><div class="contact-link-icon">✉</div><div><div class="contact-link-label">Email</div><div class="contact-link-value" id="val-email"></div></div><div class="contact-link-arrow">→</div></a>
+      <a class="contact-link" id="link-phone" href="#"><div class="contact-link-icon">☎</div><div><div class="contact-link-label">Phone</div><div class="contact-link-value" id="val-phone"></div></div><div class="contact-link-arrow">→</div></a>
+      <a class="contact-link" id="link-linkedin" href="#" target="_blank" rel="noopener"><div class="contact-link-icon">in</div><div><div class="contact-link-label">LinkedIn</div><div class="contact-link-value">linkedin.com/in/knzsakib</div></div><div class="contact-link-arrow">→</div></a>
+    </div>
+    <div class="contact-block anim-up">
+      <div class="contact-block-label">Details</div>
+      <div class="extras-grid">
+        <div class="extra-card"><div class="extra-label">Location</div><div class="extra-value">Montreal, QC<br>Canada</div></div>
+        <div class="extra-card"><div class="extra-label">Availability</div><div class="extra-value">Open to relocation &amp; travel</div></div>
+        <div class="extra-card"><div class="extra-label">P.Eng Status</div><div class="extra-value">Eligible for registration</div></div>
+        <div class="extra-card"><div class="extra-label">Languages</div><div class="extra-value">English · French · Bengali</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="contact-form-panel">
+    <div class="form-heading anim-up">Send a Message</div>
+    <p class="form-sub anim-up">Fill in the form and it will open your email client with the details pre-filled, ready to send.</p>
+    <div id="contact-form">
+      <div class="form-row"><div class="form-group"><label class="form-label" for="f-name">Your Name</label><input class="form-input" id="f-name" type="text" placeholder="Jane Smith" autocomplete="name"/></div><div class="form-group"><label class="form-label" for="f-email-in">Your Email</label><input class="form-input" id="f-email-in" type="email" placeholder="jane@company.com" autocomplete="email"/></div></div>
+      <div class="form-group"><label class="form-label" for="f-subject">Subject</label><input class="form-input" id="f-subject" type="text" placeholder="Opportunity / Collaboration / Question"/></div>
+      <div class="form-group"><label class="form-label" for="f-message">Message</label><textarea class="form-textarea" id="f-message" placeholder="Tell me about the role, project, or question..."></textarea></div>
+      <button class="form-submit" onclick="submitForm()">Open in Email Client →</button>
+      <p class="form-note">This will open your default email app with the message pre-filled.<br>Prefer to write directly? <a id="note-email-link" href="#">Email me here.</a></p>
+    </div>
+    <div class="form-success" id="form-success"><span class="form-success-icon">✓</span><h3>Email client opened</h3><p>Your message has been prepared. Just hit send in your email app.</p></div>
+  </div>
+</div>
+
+<footer>
+  <span class="footer-text"><a id="f-email" href="#"></a></span>
+  <span class="footer-text">Hosted on <a href="https://pages.github.com" target="_blank">GitHub Pages</a></span>
+</footer>
+
+<script>
+document.getElementById('link-email').href='mailto:'+ME.email;
+document.getElementById('val-email').textContent=ME.email;
+document.getElementById('link-phone').href='tel:'+ME.phone.replace(/\s/g,'');
+document.getElementById('val-phone').textContent=ME.phone;
+document.getElementById('link-linkedin').href=ME.linkedin;
+document.getElementById('note-email-link').href='mailto:'+ME.email;
+document.getElementById('f-email').textContent=ME.email;
+document.getElementById('f-email').href='mailto:'+ME.email;
+
+function submitForm(){
+  const name=document.getElementById('f-name').value.trim();
+  const from=document.getElementById('f-email-in').value.trim();
+  const subject=document.getElementById('f-subject').value.trim()||'Message from Portfolio';
+  const message=document.getElementById('f-message').value.trim();
+  const body=[name?'From: '+name:'',from?'Email: '+from:'','',message||'(no message)'].filter((l,i)=>i>1||l).join('\n');
+  window.location.href=`mailto:${ME.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  document.getElementById('contact-form').style.display='none';
+  document.getElementById('form-success').style.display='block';
+}
+
+const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('visible')})},{threshold:.1,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.anim-up').forEach(el=>obs.observe(el));
+window.addEventListener('scroll',()=>{document.getElementById('main-nav').classList.toggle('scrolled',window.scrollY>40)});
+const glow=document.getElementById('cursor-glow');
+document.addEventListener('mousemove',e=>{glow.style.left=e.clientX+'px';glow.style.top=e.clientY+'px'});
+</script>
+</body>
+</html>

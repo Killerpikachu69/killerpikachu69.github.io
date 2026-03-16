@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Career — Khondokar Nazmus Sakib</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+  <style>
+    :root{--bg:#0c0f14;--surface:#13161d;--surface2:#1a1e27;--border:#2a3040;--border2:#353d50;--text:#e8e6e3;--text2:#c5c1bb;--muted:#8a8e99;--faint:#5a6070;--accent:#c9a84c;--accent2:#e8c96a;--accent-dim:rgba(201,168,76,.12);--gradient:linear-gradient(135deg,#c9a84c 0%,#e8c96a 50%,#c9a84c 100%);--glow:0 0 30px rgba(201,168,76,.15)}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{background:var(--bg);color:var(--text);font-family:'Outfit',sans-serif;font-weight:300;overflow-x:hidden;line-height:1.6;min-height:100vh;display:flex;flex-direction:column}
+    body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.03'/%3E%3C/svg%3E");pointer-events:none;z-index:0;opacity:.5}
+
+    @keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+    .anim-up{opacity:0;transform:translateY(24px);transition:all .6s cubic-bezier(.22,1,.36,1)}
+    .anim-up.visible{opacity:1;transform:translateY(0)}
+
+    nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(12,15,20,.85);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:0 72px;display:flex;align-items:center;justify-content:space-between;height:60px;transition:all .3s}
+    nav.scrolled{background:rgba(12,15,20,.95);box-shadow:0 4px 30px rgba(0,0,0,.3)}
+    .nav-logo{font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:500;letter-spacing:.22em;background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;text-decoration:none}
+    .nav-links{display:flex;gap:4px}
+    .nav-btn{font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);background:transparent;border:1px solid transparent;padding:8px 18px;border-radius:6px;text-decoration:none;transition:all .25s}
+    .nav-btn:hover{color:var(--accent);border-color:var(--border2)}
+    .nav-btn.active{border-color:var(--accent);color:var(--accent);background:var(--accent-dim)}
+
+    .page-header{position:relative;z-index:1;padding:120px 72px 48px;border-bottom:1px solid var(--border)}
+    .page-eyebrow{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.3em;color:var(--accent);text-transform:uppercase;margin-bottom:14px;display:inline-flex;align-items:center;gap:12px}
+    .page-eyebrow::before{content:'';width:40px;height:1px;background:var(--gradient)}
+    h1{font-family:'Playfair Display',serif;font-weight:800;font-size:clamp(36px,4.5vw,60px);line-height:1.05;color:var(--text);letter-spacing:-.02em}
+    h1 em{font-style:normal;background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .page-sub{margin-top:12px;font-size:14px;color:var(--muted);max-width:550px;line-height:1.75}
+
+    /* ── Quick stats bar ── */
+    .stats-bar{position:relative;z-index:1;padding:24px 72px;background:var(--surface);border-bottom:1px solid var(--border);display:flex;gap:48px;flex-wrap:wrap}
+    .qstat{display:flex;flex-direction:column}
+    .qstat-val{font-family:'Playfair Display',serif;font-size:28px;font-weight:700;background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1}
+    .qstat-label{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.18em;color:var(--faint);text-transform:uppercase;margin-top:4px}
+
+    /* ── Section ── */
+    .content{position:relative;z-index:1;max-width:920px;margin:0 auto;padding:56px 72px 64px;width:100%}
+    .sec-heading{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.3em;color:var(--accent);text-transform:uppercase;margin-bottom:32px;padding-bottom:12px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:12px}
+    .sec-heading::before{content:'';width:4px;height:16px;background:var(--gradient);border-radius:2px}
+
+    /* ── Experience Block ── */
+    .exp-block{margin-bottom:48px;padding-bottom:40px;border-bottom:1px solid var(--border)}
+    .exp-block:last-of-type{border-bottom:none;padding-bottom:0}
+    .exp-top{display:flex;justify-content:space-between;align-items:flex-start;gap:20px;flex-wrap:wrap;margin-bottom:6px}
+    .exp-company{font-family:'Playfair Display',serif;font-size:24px;font-weight:700;color:var(--text)}
+    .exp-meta{text-align:right}
+    .exp-location{font-family:'JetBrains Mono',monospace;font-size:10.5px;color:var(--faint)}
+    .exp-role{font-size:15px;color:var(--accent);font-weight:500;margin-top:2px}
+    .exp-period{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--faint);margin-top:2px}
+    .exp-bullets{list-style:none;margin-top:16px;display:flex;flex-direction:column;gap:0}
+    .exp-bullets li{font-size:14px;color:var(--muted);line-height:1.75;padding:6px 0 6px 20px;position:relative;border-bottom:1px solid rgba(42,48,64,.4)}
+    .exp-bullets li:last-child{border-bottom:none}
+    .exp-bullets li::before{content:'›';position:absolute;left:0;color:var(--accent);font-family:'JetBrains Mono',monospace;font-weight:700}
+    .exp-skills{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
+    .exp-chip{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.06em;text-transform:uppercase;padding:4px 10px;border-radius:4px;background:var(--accent-dim);border:1px solid rgba(201,168,76,.15);color:var(--accent)}
+
+    /* ── Education strip ── */
+    .edu-strip{position:relative;z-index:1;padding:40px 72px;border-top:1px solid var(--border);background:var(--surface)}
+    .edu-inner{max-width:920px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:24px}
+    .edu-card{background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:24px;transition:all .3s}
+    .edu-card:hover{border-color:var(--border2);box-shadow:var(--glow)}
+    .edu-degree{font-family:'Playfair Display',serif;font-size:17px;font-weight:700;color:var(--text);margin-bottom:4px}
+    .edu-school{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--accent)}
+    .edu-detail{font-size:12.5px;color:var(--muted);margin-top:6px;line-height:1.65}
+
+    /* ── Additional ── */
+    .add-strip{position:relative;z-index:1;padding:40px 72px;border-top:1px solid var(--border)}
+    .add-inner{max-width:920px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px}
+    .add-card{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:20px;transition:all .3s}
+    .add-card:hover{border-color:var(--border2)}
+    .add-label{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.16em;color:var(--accent);text-transform:uppercase;margin-bottom:6px}
+    .add-val{font-size:13px;color:var(--text2);line-height:1.6}
+
+    footer{position:relative;z-index:1;margin-top:auto;padding:32px 72px;border-top:1px solid var(--border);background:var(--surface);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px}
+    .footer-text{font-family:'JetBrains Mono',monospace;font-size:10.5px;color:var(--faint)}
+    .footer-text a{color:var(--accent);text-decoration:none}
+    .cursor-glow{position:fixed;width:300px;height:300px;background:radial-gradient(circle,rgba(201,168,76,.04) 0%,transparent 70%);pointer-events:none;z-index:0;transform:translate(-50%,-50%);transition:left .15s,top .15s}
+
+    @media(max-width:900px){.edu-inner{grid-template-columns:1fr}}
+    @media(max-width:720px){nav,.page-header,.stats-bar,.content,.edu-strip,.add-strip,footer{padding-left:24px;padding-right:24px}.page-header{padding-top:100px}.exp-top{flex-direction:column;gap:4px}.exp-meta{text-align:left}.nav-links{gap:2px}.nav-btn{padding:8px 10px;font-size:9px}}
+  </style>
+</head>
+<body>
+<div class="cursor-glow" id="cursor-glow"></div>
+
+<nav id="main-nav">
+  <a class="nav-logo" href="index.html">KNS</a>
+  <div class="nav-links">
+    <a class="nav-btn" href="index.html">Home</a>
+    <a class="nav-btn" href="projects.html">Projects</a>
+    <a class="nav-btn active" href="career.html">Career</a>
+    <a class="nav-btn" href="hobbies.html">Interests</a>
+    <a class="nav-btn" href="contact.html">Contact</a>
+  </div>
+</nav>
+
+<div class="page-header">
+  <div class="page-eyebrow">Resume</div>
+  <h1>Professional <em>Experience</em></h1>
+  <p class="page-sub">5+ years of hands-on mechanical engineering across aerospace manufacturing, product development, automation, and business development.</p>
+</div>
+
+<div class="stats-bar">
+  <div class="qstat"><div class="qstat-val">5+</div><div class="qstat-label">Years Experience</div></div>
+  <div class="qstat"><div class="qstat-val">4</div><div class="qstat-label">Companies</div></div>
+  <div class="qstat"><div class="qstat-val">30%</div><div class="qstat-label">RMA Reduction</div></div>
+  <div class="qstat"><div class="qstat-val">2×</div><div class="qstat-label">Production Doubled</div></div>
+  <div class="qstat"><div class="qstat-val">$50M+</div><div class="qstat-label">Quotations Developed</div></div>
+</div>
+
+<div class="content">
+  <div class="sec-heading anim-up">Professional Experience</div>
+
+  <div class="exp-block anim-up">
+    <div class="exp-top">
+      <div class="exp-company">Apollo Microwaves</div>
+      <div class="exp-meta"><div class="exp-location">Montreal, QC</div></div>
+    </div>
+    <div class="exp-role">Mechanical Engineer</div>
+    <div class="exp-period">Jan 2021 – Present</div>
+    <ul class="exp-bullets">
+      <li>Spearheaded integrated R&D projects for aerospace products, aligning engineering design, manufacturing, and product development for over 5 years</li>
+      <li>Optimizing manufacturing processes — tube winding, heat treatment, electroless plating — through metallurgical research, reducing customer RMA by 30%</li>
+      <li>Improving production times by over 60% by developing induction brazing, welding, machining and 3D printing processes through thermal simulations</li>
+      <li>Automated machining by programming KUKA/EROWA robots using KRL, C++ and PLC — doubled production throughput</li>
+      <li>Developed 3D models using DFM principles in SolidWorks, Creo &amp; AutoCAD for new RF subcomponents and waveguide assemblies</li>
+      <li>Designed and assembled milling machine safety guards with automated power cutoff in-house at 20% of market price</li>
+      <li>Extensive CFD on ANSYS for high-pressure nozzle design and forced convection optimization</li>
+      <li>FEA for motion/stress study, fatigue testing, and thermal deformation simulation</li>
+      <li>Spearheading a machine to produce flexible twistable waveguides through roll-to-roll winding — reverse-engineered from patent drawings</li>
+      <li>Developing detailed documentation for testing data analysis and instruction manuals to train operators</li>
+    </ul>
+    <div class="exp-skills">
+      <span class="exp-chip">SolidWorks</span><span class="exp-chip">Creo</span><span class="exp-chip">ANSYS</span><span class="exp-chip">KUKA KRL</span><span class="exp-chip">C++</span><span class="exp-chip">PLC</span><span class="exp-chip">CNC</span><span class="exp-chip">3D Printing</span><span class="exp-chip">Induction Brazing</span><span class="exp-chip">GD&T</span>
+    </div>
+  </div>
+
+  <div class="exp-block anim-up">
+    <div class="exp-top">
+      <div class="exp-company">Velan Inc.</div>
+      <div class="exp-meta"><div class="exp-location">Montreal, QC</div></div>
+    </div>
+    <div class="exp-role">Mechanical Engineering Intern — Business Development</div>
+    <div class="exp-period">May 2022 – Dec 2022</div>
+    <ul class="exp-bullets">
+      <li>Collaborated with Severe Service Business Unit, contributing to product development and quotations with a team of 20+ engineers</li>
+      <li>Compiled and analyzed data from 500+ P&amp;IDs to identify Metal Seated Ball Valve opportunities — developed quotations totaling over $50M</li>
+      <li>Assisted in product lifecycle management, line drawings for patents and cost estimates for $20M+ valve programs with actuator selection</li>
+      <li>Managed 6+ control valve skid projects across quotation, design and business development teams</li>
+      <li>Automated customer datasheets and enhanced data analytics using Python, VB, and SQL</li>
+    </ul>
+    <div class="exp-skills">
+      <span class="exp-chip">Python</span><span class="exp-chip">VB</span><span class="exp-chip">SQL</span><span class="exp-chip">PLM</span><span class="exp-chip">P&ID Analysis</span><span class="exp-chip">Business Dev.</span>
+    </div>
+  </div>
+
+  <div class="exp-block anim-up">
+    <div class="exp-top">
+      <div class="exp-company">Laurus Summer Camp</div>
+      <div class="exp-meta"><div class="exp-location">Montreal, QC</div></div>
+    </div>
+    <div class="exp-role">Robotics Instructor</div>
+    <div class="exp-period">Summer 2022</div>
+    <ul class="exp-bullets">
+      <li>Taught introductory robotics and coding to classes of 10–15 middle school students</li>
+      <li>Developed engaging curriculum with activities and experiments — received overwhelmingly positive reviews from parents</li>
+    </ul>
+  </div>
+
+  <div class="exp-block anim-up">
+    <div class="exp-top">
+      <div class="exp-company">IO Solutions</div>
+      <div class="exp-meta"><div class="exp-location">Montreal, QC</div></div>
+    </div>
+    <div class="exp-role">Sales Representative</div>
+    <div class="exp-period">Jan 2020 – Mar 2021</div>
+    <ul class="exp-bullets">
+      <li>Reached target 90% of the time providing support and selling new products to customers</li>
+      <li>Best salesman of the month 4 times — exercised strong communication and client relationship skills</li>
+    </ul>
+  </div>
+
+  <div class="sec-heading anim-up">Skills &amp; Applications</div>
+  <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:32px" class="anim-up">
+    <span class="exp-chip">SolidWorks</span><span class="exp-chip">CATIA</span><span class="exp-chip">Creo</span><span class="exp-chip">AutoCAD</span><span class="exp-chip">NX</span><span class="exp-chip">Python</span><span class="exp-chip">ANSYS</span><span class="exp-chip">MATLAB</span><span class="exp-chip">Simulink</span><span class="exp-chip">C++</span><span class="exp-chip">C#</span><span class="exp-chip">SQL</span><span class="exp-chip">KUKA KRL</span><span class="exp-chip">PLC</span><span class="exp-chip">MS Office</span>
+  </div>
+  <div style="font-size:14px;color:var(--muted);line-height:1.8;margin-bottom:8px" class="anim-up"><strong style="color:var(--text);font-weight:500">Methodologies:</strong> &nbsp;Manufacturing Process Development · Mechanical Design · FEA · CFD · Automation Integration · Product Development · GD&T · DFM</div>
+</div>
+
+<div class="edu-strip">
+  <div class="edu-inner">
+    <div class="edu-card anim-up">
+      <div class="edu-degree">B.Eng Mechanical Engineering</div>
+      <div class="edu-school">Concordia University · Co-op</div>
+      <div class="edu-detail">Engweek Design Competition Winner · Stress &amp; Design Analyst at Space Concordia Rocketry · Relevant courses: Thermodynamics, Control Systems, Fluid Mechanics, Mechatronics</div>
+    </div>
+    <div class="edu-card anim-up">
+      <div class="edu-degree">DEC — Pure &amp; Applied Sciences</div>
+      <div class="edu-school">Dawson College · Montreal</div>
+      <div class="edu-detail">Exchange year in Theoretical Physics at University of Malaya, Malaysia · Bangladesh Youth Leadership Center graduate</div>
+    </div>
+  </div>
+</div>
+
+<div class="add-strip">
+  <div class="add-inner">
+    <div class="add-card anim-up"><div class="add-label">P.Eng Status</div><div class="add-val">Eligible &amp; in process of E.I.T. registration to obtain P.Eng. Certification (OIQ)</div></div>
+    <div class="add-card anim-up"><div class="add-label">Languages</div><div class="add-val">English (Fluent) · French (Beginner) · Bengali (Native)</div></div>
+    <div class="add-card anim-up"><div class="add-label">Interests</div><div class="add-val">Astronomy · Chess · Guitar · Football · Formula 1 · Video Games</div></div>
+  </div>
+</div>
+
+<footer>
+  <span class="footer-text"><a href="mailto:khondokarnazmus.sakib@mail.concordia.ca">khondokarnazmus.sakib@mail.concordia.ca</a> · +1 514 578 6234</span>
+  <span class="footer-text">Hosted on <a href="https://pages.github.com" target="_blank">GitHub Pages</a></span>
+</footer>
+
+<script>
+const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('visible')})},{threshold:.1,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.anim-up').forEach(el=>obs.observe(el));
+window.addEventListener('scroll',()=>{document.getElementById('main-nav').classList.toggle('scrolled',window.scrollY>40)});
+const glow=document.getElementById('cursor-glow');
+document.addEventListener('mousemove',e=>{glow.style.left=e.clientX+'px';glow.style.top=e.clientY+'px'});
+</script>
+</body>
+</html>

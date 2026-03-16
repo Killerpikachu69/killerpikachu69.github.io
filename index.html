@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Khondokar Nazmus Sakib — Mechanical Engineer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+  <style>
+    :root{--bg:#0c0f14;--surface:#13161d;--surface2:#1a1e27;--surface3:#222733;--border:#2a3040;--border2:#353d50;--text:#e8e6e3;--text2:#c5c1bb;--muted:#8a8e99;--faint:#5a6070;--accent:#c9a84c;--accent2:#e8c96a;--accent-dim:rgba(201,168,76,.12);--gradient:linear-gradient(135deg,#c9a84c 0%,#e8c96a 50%,#c9a84c 100%);--glow:0 0 30px rgba(201,168,76,.15)}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{background:var(--bg);color:var(--text);font-family:'Outfit',sans-serif;font-weight:300;overflow-x:hidden;line-height:1.6;min-height:100vh;display:flex;flex-direction:column}
+    body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.03'/%3E%3C/svg%3E");pointer-events:none;z-index:0;opacity:.5}
+    body::after{content:'';position:fixed;top:-30%;left:-10%;width:60%;height:60%;background:radial-gradient(ellipse,rgba(201,168,76,.04) 0%,transparent 70%);pointer-events:none;z-index:0}
+
+    @keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+    @keyframes fadeIn{from{opacity:0}to{opacity:1}}
+    @keyframes pulse-glow{0%,100%{box-shadow:0 0 0 0 rgba(201,168,76,.3)}50%{box-shadow:0 0 20px 4px rgba(201,168,76,.15)}}
+    .anim-up{opacity:0;transform:translateY(30px);transition:all .7s cubic-bezier(.22,1,.36,1)}
+    .anim-up.visible{opacity:1;transform:translateY(0)}
+    .anim-left{opacity:0;transform:translateX(-30px);transition:all .7s cubic-bezier(.22,1,.36,1)}
+    .anim-left.visible{opacity:1;transform:translateX(0)}
+
+    nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(12,15,20,.85);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:0 72px;display:flex;align-items:center;justify-content:space-between;height:60px;transition:all .3s}
+    nav.scrolled{background:rgba(12,15,20,.95);box-shadow:0 4px 30px rgba(0,0,0,.3)}
+    .nav-logo{font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:500;letter-spacing:.22em;background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;text-decoration:none}
+    .nav-links{display:flex;gap:4px}
+    .nav-btn{font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);background:transparent;border:1px solid transparent;padding:8px 18px;border-radius:6px;text-decoration:none;transition:all .25s;cursor:pointer}
+    .nav-btn:hover{color:var(--accent);border-color:var(--border2)}
+    .nav-btn.active{border-color:var(--accent);color:var(--accent);background:var(--accent-dim)}
+
+    .hero{position:relative;z-index:1;padding:140px 72px 80px;display:flex;align-items:flex-end;justify-content:space-between;gap:48px;flex-wrap:wrap;overflow:hidden}
+    .hero::before{content:'';position:absolute;top:0;right:0;width:500px;height:500px;background:radial-gradient(circle,rgba(201,168,76,.06) 0%,transparent 70%);pointer-events:none}
+    .hero-left{max-width:650px}
+    .hero-eyebrow{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.3em;color:var(--accent);text-transform:uppercase;margin-bottom:20px;display:inline-flex;align-items:center;gap:12px;animation:fadeIn .8s ease both}
+    .hero-eyebrow::before{content:'';width:40px;height:1px;background:var(--gradient)}
+    h1{font-family:'Playfair Display',serif;font-weight:800;font-size:clamp(44px,5.5vw,84px);line-height:1.0;color:var(--text);letter-spacing:-.02em;animation:fadeUp .8s ease both .1s}
+    h1 em{font-style:normal;background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .hero-tagline{margin-top:24px;font-size:16px;color:var(--muted);max-width:440px;line-height:1.8;animation:fadeUp .8s ease both .2s}
+    .hero-ctas{display:flex;gap:14px;flex-wrap:wrap;margin-top:36px;animation:fadeUp .8s ease both .3s}
+    .btn-primary{display:inline-flex;align-items:center;gap:8px;background:var(--gradient);color:var(--bg);font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;padding:14px 28px;border-radius:8px;text-decoration:none;transition:all .25s;font-weight:500;box-shadow:0 4px 20px rgba(201,168,76,.25)}
+    .btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(201,168,76,.35)}
+    .btn-secondary{display:inline-flex;align-items:center;gap:8px;background:transparent;color:var(--accent);font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;padding:13px 28px;border-radius:8px;text-decoration:none;border:1px solid var(--border2);transition:all .25s;font-weight:500}
+    .btn-secondary:hover{border-color:var(--accent);background:var(--accent-dim);transform:translateY(-2px)}
+    .hero-stats{display:flex;flex-direction:column;align-items:flex-end;gap:24px;animation:fadeUp .8s ease both .4s}
+    .stat{text-align:right}
+    .stat-number{font-family:'Playfair Display',serif;font-size:42px;font-weight:700;background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1}
+    .stat-label{font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:.18em;color:var(--faint);text-transform:uppercase;margin-top:6px}
+
+    .about-strip{position:relative;z-index:1;padding:36px 72px;border-top:1px solid var(--border);border-bottom:1px solid var(--border);background:var(--surface);display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:36px}
+    .about-label{font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:.22em;color:var(--accent);text-transform:uppercase;margin-bottom:12px}
+    .about-value{font-size:13.5px;color:var(--text2);line-height:1.7}
+    .about-value small{display:block;font-family:'JetBrains Mono',monospace;font-size:10.5px;color:var(--muted);margin-top:3px}
+
+    .section-wrap{position:relative;z-index:1;padding:56px 72px 0}
+    .section-title{font-family:'Playfair Display',serif;font-size:28px;font-weight:700;color:var(--text);letter-spacing:-.01em;padding-bottom:24px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:16px}
+    .section-title::before{content:'';width:4px;height:28px;background:var(--gradient);border-radius:2px}
+
+    .timeline-section{position:relative;z-index:1;padding:48px 72px 64px}
+    .timeline{position:relative;max-width:700px;margin:0 auto;padding:20px 0}
+    .timeline::before{content:'';position:absolute;left:28px;top:0;bottom:0;width:2px;background:linear-gradient(to bottom,var(--accent),var(--border2) 50%,var(--border))}
+    .timeline::after{content:'';position:absolute;left:20px;top:-6px;border-left:10px solid transparent;border-right:10px solid transparent;border-bottom:14px solid var(--accent)}
+    .tl-label{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.25em;color:var(--accent);text-transform:uppercase;margin-left:64px;margin-bottom:8px;padding-top:4px}
+    .tl-item{position:relative;padding:0 0 36px 64px;transition:all .3s}
+    .tl-item:last-child{padding-bottom:0}
+    .tl-dot{position:absolute;left:18px;top:6px;width:22px;height:22px;border-radius:50%;border:2px solid var(--accent);background:var(--bg);display:flex;align-items:center;justify-content:center;transition:all .3s;z-index:2}
+    .tl-dot::after{content:'';width:8px;height:8px;border-radius:50%;background:var(--accent);transition:all .3s}
+    .tl-item:hover .tl-dot{box-shadow:0 0 16px rgba(201,168,76,.4);transform:scale(1.15)}
+    .tl-item.current .tl-dot{animation:pulse-glow 2.5s infinite}
+    .tl-card{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:20px 24px;transition:all .3s}
+    .tl-item:hover .tl-card{border-color:var(--border2);background:var(--surface2);transform:translateX(4px)}
+    .tl-company{font-family:'Playfair Display',serif;font-size:17px;font-weight:700;color:var(--text)}
+    .tl-role{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--accent);letter-spacing:.05em;margin-top:2px}
+    .tl-period{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--faint);margin-top:4px}
+    .tl-type{display:inline-block;margin-top:8px;font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.08em;text-transform:uppercase;padding:3px 10px;border-radius:4px;background:var(--accent-dim);color:var(--accent);border:1px solid rgba(201,168,76,.2)}
+    /* grouped sub-roles */
+    .tl-progression{margin-top:14px;padding-top:10px;border-top:1px solid var(--border);display:flex;flex-direction:column;gap:0}
+    .tl-step{display:flex;align-items:flex-start;gap:10px;padding:8px 0;border-bottom:1px solid rgba(42,48,64,.4);font-size:12px}
+    .tl-step:last-child{border-bottom:none}
+    .tl-step-marker{width:8px;height:8px;border-radius:50%;border:1.5px solid var(--accent);flex-shrink:0;margin-top:4px;background:var(--bg)}
+    .tl-step.active .tl-step-marker{background:var(--accent)}
+    .tl-step-role{color:var(--text2);font-family:'JetBrains Mono',monospace;font-size:11px;line-height:1.5}
+    .tl-step-period{color:var(--faint);font-family:'JetBrains Mono',monospace;font-size:9.5px;margin-top:1px}
+
+    .skills-section{position:relative;z-index:1;padding:0 72px 64px}
+    .skills-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px;margin-top:36px}
+    .skill-panel{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:32px;transition:all .3s}
+    .skill-panel:hover{border-color:var(--border2);box-shadow:var(--glow)}
+    .skill-panel-title{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.25em;color:var(--accent);text-transform:uppercase;margin-bottom:20px;display:flex;align-items:center;gap:10px}
+    .skill-panel-title::before{content:'';width:24px;height:1px;background:var(--accent)}
+    .skill-list{list-style:none;display:flex;flex-direction:column;gap:0}
+    .skill-item{display:flex;align-items:center;gap:12px;padding:10px 14px;border-bottom:1px solid var(--border);font-size:13.5px;color:var(--text2);transition:all .25s;border-radius:6px}
+    .skill-item:last-child{border-bottom:none}
+    .skill-item:hover{background:var(--surface2);color:var(--text);padding-left:20px}
+    .skill-icon{width:6px;height:6px;border-radius:50%;background:var(--accent);flex-shrink:0;transition:all .25s}
+    .skill-item:hover .skill-icon{box-shadow:0 0 8px rgba(201,168,76,.5)}
+
+    footer{position:relative;z-index:1;margin-top:auto;padding:32px 72px;border-top:1px solid var(--border);background:var(--surface);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px}
+    .footer-text{font-family:'JetBrains Mono',monospace;font-size:10.5px;color:var(--faint)}
+    .footer-text a{color:var(--accent);text-decoration:none;transition:color .2s}
+    .footer-text a:hover{color:var(--accent2)}
+
+    .cursor-glow{position:fixed;width:300px;height:300px;background:radial-gradient(circle,rgba(201,168,76,.04) 0%,transparent 70%);pointer-events:none;z-index:0;transform:translate(-50%,-50%);transition:left .15s,top .15s}
+
+    @media(max-width:900px){.skills-grid{grid-template-columns:1fr}}
+    @media(max-width:720px){nav,.hero,.about-strip,.section-wrap,.timeline-section,.skills-section,footer{padding-left:24px;padding-right:24px}nav{padding:0 24px}.hero{padding-top:100px}.hero-stats{align-items:flex-start;flex-direction:row;gap:32px}.stat{text-align:left}.nav-links{gap:2px}.nav-btn{padding:8px 10px;font-size:9px}}
+  </style>
+</head>
+<body>
+<div class="cursor-glow" id="cursor-glow"></div>
+
+<nav id="main-nav">
+  <a class="nav-logo" href="index.html">KNS</a>
+  <div class="nav-links">
+    <a class="nav-btn active" href="index.html">Home</a>
+    <a class="nav-btn" href="projects.html">Projects</a>
+    <a class="nav-btn" href="career.html">Career</a>
+    <a class="nav-btn" href="hobbies.html">Interests</a>
+    <a class="nav-btn" href="contact.html">Contact</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-eyebrow">Engineering Portfolio</div>
+    <h1 id="eng-name"></h1>
+    <p class="hero-tagline" id="hero-tagline"></p>
+    <div class="hero-ctas">
+      <a class="btn-primary" href="projects.html">View Projects →</a>
+      <a class="btn-secondary" href="contact.html">Get in Touch</a>
+    </div>
+  </div>
+  <div class="hero-stats" id="hero-stats"></div>
+</section>
+
+<div class="about-strip">
+  <div class="anim-up"><div class="about-label">Current Role</div><div class="about-value">Mechanical Lead · Apollo Microwaves<small>Montreal, QC · Jun 2025 – Present</small></div></div>
+  <div class="anim-up"><div class="about-label">Education</div><div class="about-value">B.Eng Mechanical Engineering (Co-op)<small>Concordia University · Montreal · 2019–2023</small></div></div>
+  <div class="anim-up"><div class="about-label">Specialization</div><div class="about-value">Aerospace Manufacturing, Automation &amp; Precision Machine Design<small>5+ years integrated R&amp;D experience</small></div></div>
+</div>
+
+<div class="section-wrap"><div class="section-title anim-up">Career Journey</div></div>
+<div class="timeline-section"><div class="timeline" id="timeline"></div></div>
+
+<div class="section-wrap"><div class="section-title anim-up">Skills &amp; Expertise</div></div>
+<div class="skills-section">
+  <div class="skills-grid">
+    <div class="skill-panel anim-up"><div class="skill-panel-title">Core Engineering Skills</div><ul class="skill-list" id="skills-list"></ul></div>
+    <div class="skill-panel anim-up"><div class="skill-panel-title">Software &amp; Tools</div><ul class="skill-list" id="tools-list"></ul></div>
+  </div>
+</div>
+
+<footer>
+  <span class="footer-text" id="footer-contact"></span>
+  <span class="footer-text">Hosted on <a href="https://pages.github.com" target="_blank">GitHub Pages</a></span>
+</footer>
+
+<script>
+const ME={firstName:"Khondokar Nazmus",lastName:"Sakib",title:"Mechanical & Manufacturing Engineer",location:"Montreal, QC, Canada",phone:"+1 514 578 6234",email:"khondokarnazmus.sakib@mail.concordia.ca",linkedin:"https://www.linkedin.com/in/knzsakib"};
+const CORE_SKILLS=["FEA & Structural Analysis","CFD & Thermal Simulation","GD&T (ASME Y14.5)","DFM / DFA","CNC Machining & Programming","Induction Brazing & Welding","3D Printing & Rapid Prototyping","Robotics & PLC Integration","Product Development (TRL 1–9)","Process Optimization","Metallurgical Testing","Technical Documentation"];
+const SOFTWARE_TOOLS=["SolidWorks","CATIA V5","Creo / Pro-E","AutoCAD","ANSYS Workbench","MATLAB & Simulink","Python (Pandas, Flask, Dash)","C++ / C#","SQL Server","KUKA KRL","PLC Programming","Microsoft Office & VBA"];
+const TIMELINE=[
+  {company:"Apollo Microwaves",period:"Jan 2021 – Present",type:"Full-Time",current:true,grouped:true,
+   steps:[
+     {role:"Mechanical Lead — Engineering",period:"Jun 2025 – Present",active:true},
+     {role:"Mechanical Engineer — Manufacturing",period:"Jun 2023 – May 2025",active:false},
+     {role:"Mechanical Engineering Intern",period:"Jan 2023 – May 2023",active:false},
+     {role:"Mechanical Engineering Intern (Co-op)",period:"Jan 2021 – Apr 2022",active:false},
+   ]},
+  {company:"Velan Inc.",role:"Mech. Engineering Intern — Business Dev.",period:"May 2022 – Dec 2022",type:"Internship",current:false},
+  {company:"IO Solutions",role:"Sales Representative",period:"Dec 2019 – Dec 2020",type:"Part-Time",current:false},
+];
+
+document.getElementById('eng-name').innerHTML=ME.firstName+'<br><em>'+ME.lastName+'</em>';
+document.getElementById('hero-tagline').textContent=ME.title+' based in '+ME.location+'. Specializing in aerospace manufacturing, automation, and precision machine design.';
+document.getElementById('footer-contact').innerHTML=`<a href="mailto:${ME.email}">${ME.email}</a> · ${ME.phone}`;
+
+const stats=[{n:'5+',l:'Years Experience'},{n:'12',l:'Projects'},{n:'2×',l:'Production Doubled'},{n:'30%',l:'RMA Reduction'}];
+document.getElementById('hero-stats').innerHTML=stats.map(s=>`<div class="stat"><div class="stat-number">${s.n}</div><div class="stat-label">${s.l}</div></div>`).join('');
+
+/* Timeline */
+const tlEl=document.getElementById('timeline');
+TIMELINE.forEach((t,i)=>{
+  let lbl='';
+  if(t.current) lbl=`<div class="tl-label">▲ PRESENT</div>`;
+  let inner='';
+  if(t.grouped){
+    inner=`<div class="tl-company">${t.company}</div><div class="tl-period" style="margin-top:4px">${t.period}</div><span class="tl-type">${t.type}</span><div class="tl-progression">${t.steps.map(s=>`<div class="tl-step ${s.active?'active':''}"><div class="tl-step-marker"></div><div><div class="tl-step-role">${s.role}</div><div class="tl-step-period">${s.period}</div></div></div>`).join('')}</div>`;
+  } else {
+    inner=`<div class="tl-company">${t.company}</div><div class="tl-role">${t.role}</div><div class="tl-period">${t.period}</div><span class="tl-type">${t.type}</span>`;
+  }
+  tlEl.insertAdjacentHTML('beforeend',`${lbl}<div class="tl-item ${t.current?'current':''} anim-left" style="transition-delay:${i*.08}s"><div class="tl-dot"></div><div class="tl-card">${inner}</div></div>`);
+});
+
+/* Skills & Tools */
+document.getElementById('skills-list').innerHTML=CORE_SKILLS.map(s=>`<li class="skill-item"><span class="skill-icon"></span>${s}</li>`).join('');
+document.getElementById('tools-list').innerHTML=SOFTWARE_TOOLS.map(s=>`<li class="skill-item"><span class="skill-icon"></span>${s}</li>`).join('');
+
+/* Scroll observer */
+const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('visible')})},{threshold:.1,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.anim-up,.anim-left').forEach(el=>obs.observe(el));
+
+/* Nav scroll */
+window.addEventListener('scroll',()=>{document.getElementById('main-nav').classList.toggle('scrolled',window.scrollY>40)});
+
+/* Cursor glow */
+const glow=document.getElementById('cursor-glow');
+document.addEventListener('mousemove',e=>{glow.style.left=e.clientX+'px';glow.style.top=e.clientY+'px'});
+
+/* Counter animation */
+function animCounters(){document.querySelectorAll('.stat-number').forEach(el=>{const t=el.textContent,n=parseInt(t);if(isNaN(n))return;const s=t.replace(/\d+/,'');let c=0;const step=Math.ceil(n/40),iv=setInterval(()=>{c+=step;if(c>=n){c=n;clearInterval(iv)}el.textContent=c+s},30)})}
+setTimeout(animCounters,600);
+</script>
+</body>
+</html>
