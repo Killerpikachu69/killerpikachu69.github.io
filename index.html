@@ -54,7 +54,7 @@
     .about-value small{display:block;font-family:'JetBrains Mono',monospace;font-size:10.5px;color:var(--muted);margin-top:3px}
 
     .section-wrap{position:relative;z-index:1;padding:56px 72px 0}
-    .section-title{font-family:'Playfair Display',serif;font-size:28px;font-weight:700;color:var(--text);letter-spacing:-.01em;padding-bottom:24px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:16px}
+    .section-title{font-family:'Playfair Display',serif;font-size:26px;font-weight:700;color:var(--text);letter-spacing:-.01em;padding-bottom:24px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:16px}
     .section-title::before{content:'';width:4px;height:28px;background:var(--gradient);border-radius:2px}
 
     .timeline-section{position:relative;z-index:1;padding:48px 72px 64px}
@@ -74,7 +74,6 @@
     .tl-role{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--accent);letter-spacing:.05em;margin-top:2px}
     .tl-period{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--faint);margin-top:4px}
     .tl-type{display:inline-block;margin-top:8px;font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.08em;text-transform:uppercase;padding:3px 10px;border-radius:4px;background:var(--accent-dim);color:var(--accent);border:1px solid rgba(201,168,76,.2)}
-    /* grouped sub-roles */
     .tl-progression{margin-top:14px;padding-top:10px;border-top:1px solid var(--border);display:flex;flex-direction:column;gap:0}
     .tl-step{display:flex;align-items:flex-start;gap:10px;padding:8px 0;border-bottom:1px solid rgba(42,48,64,.4);font-size:12px}
     .tl-step:last-child{border-bottom:none}
@@ -100,7 +99,6 @@
     .footer-text{font-family:'JetBrains Mono',monospace;font-size:10.5px;color:var(--faint)}
     .footer-text a{color:var(--accent);text-decoration:none;transition:color .2s}
     .footer-text a:hover{color:var(--accent2)}
-
     .cursor-glow{position:fixed;width:300px;height:300px;background:radial-gradient(circle,rgba(201,168,76,.04) 0%,transparent 70%);pointer-events:none;z-index:0;transform:translate(-50%,-50%);transition:left .15s,top .15s}
 
     @media(max-width:900px){.skills-grid{grid-template-columns:1fr}}
@@ -115,7 +113,7 @@
   <div class="nav-links">
     <a class="nav-btn active" href="index.html">Home</a>
     <a class="nav-btn" href="projects.html">Projects</a>
-    <a class="nav-btn" href="career.html">Career</a>
+    <a class="nav-btn" href="career.html">Resume</a>
     <a class="nav-btn" href="hobbies.html">Interests</a>
     <a class="nav-btn" href="contact.html">Contact</a>
   </div>
@@ -127,7 +125,7 @@
     <h1 id="eng-name"></h1>
     <p class="hero-tagline" id="hero-tagline"></p>
     <div class="hero-ctas">
-      <a class="btn-primary" href="projects.html">View Projects →</a>
+      <a class="btn-primary" href="projects.html">View Projects</a>
       <a class="btn-secondary" href="contact.html">Get in Touch</a>
     </div>
   </div>
@@ -135,19 +133,19 @@
 </section>
 
 <div class="about-strip">
-  <div class="anim-up"><div class="about-label">Current Role</div><div class="about-value">Mechanical Lead · Apollo Microwaves<small>Montreal, QC · Jun 2025 – Present</small></div></div>
-  <div class="anim-up"><div class="about-label">Education</div><div class="about-value">B.Eng Mechanical Engineering (Co-op)<small>Concordia University · Montreal · 2019–2023</small></div></div>
-  <div class="anim-up"><div class="about-label">Specialization</div><div class="about-value">Aerospace Manufacturing, Automation &amp; Precision Machine Design<small>5+ years integrated R&amp;D experience</small></div></div>
+  <div class="anim-up"><div class="about-label">Current Role</div><div class="about-value">Mechanical Lead, Apollo Microwaves<small>Montreal, QC - Jun 2025 to Present</small></div></div>
+  <div class="anim-up"><div class="about-label">Education</div><div class="about-value">B.Eng Mechanical Engineering (Co-op)<small>Concordia University, Montreal - 2019 to 2023</small></div></div>
+  <div class="anim-up"><div class="about-label">Focus Areas</div><div class="about-value">Aerospace Manufacturing, Automation, Precision Machine Design<small>5+ years of hands-on engineering experience</small></div></div>
 </div>
 
 <div class="section-wrap"><div class="section-title anim-up">Career Journey</div></div>
 <div class="timeline-section"><div class="timeline" id="timeline"></div></div>
 
-<div class="section-wrap"><div class="section-title anim-up">Skills &amp; Expertise</div></div>
+<div class="section-wrap"><div class="section-title anim-up">Skills and Expertise</div></div>
 <div class="skills-section">
   <div class="skills-grid">
     <div class="skill-panel anim-up"><div class="skill-panel-title">Core Engineering Skills</div><ul class="skill-list" id="skills-list"></ul></div>
-    <div class="skill-panel anim-up"><div class="skill-panel-title">Software &amp; Tools</div><ul class="skill-list" id="tools-list"></ul></div>
+    <div class="skill-panel anim-up"><div class="skill-panel-title">Software and Tools</div><ul class="skill-list" id="tools-list"></ul></div>
   </div>
 </div>
 
@@ -157,33 +155,33 @@
 </footer>
 
 <script>
-const ME={firstName:"Khondokar Nazmus",lastName:"Sakib",title:"Mechanical & Manufacturing Engineer",location:"Montreal, QC, Canada",phone:"+1 514 578 6234",email:"khondokarnazmus.sakib@mail.concordia.ca",linkedin:"https://www.linkedin.com/in/knzsakib"};
-const CORE_SKILLS=["FEA & Structural Analysis","CFD & Thermal Simulation","GD&T (ASME Y14.5)","DFM / DFA","CNC Machining & Programming","Induction Brazing & Welding","3D Printing & Rapid Prototyping","Robotics & PLC Integration","Product Development (TRL 1–9)","Process Optimization","Metallurgical Testing","Technical Documentation"];
-const SOFTWARE_TOOLS=["SolidWorks","CATIA V5","Creo / Pro-E","AutoCAD","ANSYS Workbench","MATLAB & Simulink","Python (Pandas, Flask, Dash)","C++ / C#","SQL Server","KUKA KRL","PLC Programming","Microsoft Office & VBA"];
+const ME={firstName:"Khondokar Nazmus",lastName:"Sakib",title:"Mechanical and Manufacturing Engineer",location:"Montreal, QC, Canada",phone:"+1 514 578 6234",email:"khondokarnazmus.sakib@mail.concordia.ca",linkedin:"https://www.linkedin.com/in/knzsakib"};
+const CORE_SKILLS=["FEA and Structural Analysis","CFD and Thermal Simulation","GD&T (ASME Y14.5)","DFM / DFA","CNC Machining and Programming","Induction Brazing and Welding","3D Printing and Rapid Prototyping","Robotics and PLC Integration","Product Development","Process Optimization","Metallurgical Testing","Technical Documentation"];
+const SOFTWARE_TOOLS=["SolidWorks","CATIA V5","Creo / Pro-E","AutoCAD","ANSYS Workbench","MATLAB and Simulink","Python (Pandas, Flask, Dash)","C++ / C#","SQL Server","KUKA KRL","PLC Programming","Microsoft Office and VBA"];
 const TIMELINE=[
-  {company:"Apollo Microwaves",period:"Jan 2021 – Present",type:"Full-Time",current:true,grouped:true,
+  {company:"Apollo Microwaves",period:"Jan 2021 to Present",type:"Full-Time",current:true,grouped:true,
    steps:[
-     {role:"Mechanical Lead — Engineering",period:"Jun 2025 – Present",active:true},
-     {role:"Mechanical Engineer — Manufacturing",period:"Jun 2023 – May 2025",active:false},
-     {role:"Mechanical Engineering Intern",period:"Jan 2023 – May 2023",active:false},
-     {role:"Mechanical Engineering Intern (Co-op)",period:"Jan 2021 – Apr 2022",active:false},
+     {role:"Mechanical Lead, Engineering",period:"Jun 2025 to Present",active:true},
+     {role:"Mechanical Engineer, Manufacturing",period:"Jun 2023 to May 2025",active:false},
+     {role:"Mechanical Engineering Intern",period:"Jan 2023 to May 2023",active:false},
+     {role:"Mechanical Engineering Intern (Co-op)",period:"Jan 2021 to Apr 2022",active:false},
    ]},
-  {company:"Velan Inc.",role:"Mech. Engineering Intern — Business Dev.",period:"May 2022 – Dec 2022",type:"Co-op Internship",current:false},
-  {company:"IO Solutions",role:"Sales Representative",period:"Dec 2019 – Dec 2020",type:"Part-Time",current:false},
+  {company:"Velan Inc.",role:"Mech. Engineering Intern, Business Dev.",period:"May 2022 to Dec 2022",type:"Co-op Internship",current:false},
+  {company:"IO Solutions",role:"Sales Representative",period:"Dec 2019 to Dec 2020",type:"Part-Time",current:false},
 ];
 
 document.getElementById('eng-name').innerHTML=ME.firstName+'<br><em>'+ME.lastName+'</em>';
-document.getElementById('hero-tagline').textContent=ME.title+' based in '+ME.location+'. Specializing in aerospace manufacturing, automation, and precision machine design.';
-document.getElementById('footer-contact').innerHTML=`<a href="mailto:${ME.email}">${ME.email}</a> · ${ME.phone}`;
+document.getElementById('hero-tagline').textContent=ME.title+' based in '+ME.location+'. I work on aerospace manufacturing, automation, and precision machine design.';
+document.getElementById('footer-contact').innerHTML=`<a href="mailto:${ME.email}">${ME.email}</a> - ${ME.phone}`;
 
-const stats=[{n:'5+',l:'Years Experience'},{n:'12',l:'Projects'},{n:'2×',l:'Production Doubled'},{n:'30%',l:'RMA Reduction'}];
+const stats=[{n:'5+',l:'Years Experience'},{n:'16',l:'Projects'},{n:'48%',l:'Production Increase'},{n:'60%',l:'Faster Cycle Times'}];
 document.getElementById('hero-stats').innerHTML=stats.map(s=>`<div class="stat"><div class="stat-number">${s.n}</div><div class="stat-label">${s.l}</div></div>`).join('');
 
 /* Timeline */
 const tlEl=document.getElementById('timeline');
 TIMELINE.forEach((t,i)=>{
   let lbl='';
-  if(t.current) lbl=`<div class="tl-label">▲ PRESENT</div>`;
+  if(t.current) lbl=`<div class="tl-label">PRESENT</div>`;
   let inner='';
   if(t.grouped){
     inner=`<div class="tl-company">${t.company}</div><div class="tl-period" style="margin-top:4px">${t.period}</div><span class="tl-type">${t.type}</span><div class="tl-progression">${t.steps.map(s=>`<div class="tl-step ${s.active?'active':''}"><div class="tl-step-marker"></div><div><div class="tl-step-role">${s.role}</div><div class="tl-step-period">${s.period}</div></div></div>`).join('')}</div>`;
@@ -193,22 +191,16 @@ TIMELINE.forEach((t,i)=>{
   tlEl.insertAdjacentHTML('beforeend',`${lbl}<div class="tl-item ${t.current?'current':''} anim-left" style="transition-delay:${i*.08}s"><div class="tl-dot"></div><div class="tl-card">${inner}</div></div>`);
 });
 
-/* Skills & Tools */
+/* Skills */
 document.getElementById('skills-list').innerHTML=CORE_SKILLS.map(s=>`<li class="skill-item"><span class="skill-icon"></span>${s}</li>`).join('');
 document.getElementById('tools-list').innerHTML=SOFTWARE_TOOLS.map(s=>`<li class="skill-item"><span class="skill-icon"></span>${s}</li>`).join('');
 
 /* Scroll observer */
 const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('visible')})},{threshold:.1,rootMargin:'0px 0px -40px 0px'});
 document.querySelectorAll('.anim-up,.anim-left').forEach(el=>obs.observe(el));
-
-/* Nav scroll */
 window.addEventListener('scroll',()=>{document.getElementById('main-nav').classList.toggle('scrolled',window.scrollY>40)});
-
-/* Cursor glow */
 const glow=document.getElementById('cursor-glow');
 document.addEventListener('mousemove',e=>{glow.style.left=e.clientX+'px';glow.style.top=e.clientY+'px'});
-
-/* Counter animation */
 function animCounters(){document.querySelectorAll('.stat-number').forEach(el=>{const t=el.textContent,n=parseInt(t);if(isNaN(n))return;const s=t.replace(/\d+/,'');let c=0;const step=Math.ceil(n/40),iv=setInterval(()=>{c+=step;if(c>=n){c=n;clearInterval(iv)}el.textContent=c+s},30)})}
 setTimeout(animCounters,600);
 </script>

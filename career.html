@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Career — Khondokar Nazmus Sakib</title>
+  <title>Resume — Khondokar Nazmus Sakib</title>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
   <style>
@@ -12,7 +12,6 @@
     html{scroll-behavior:smooth}
     body{background:var(--bg);color:var(--text);font-family:'Outfit',sans-serif;font-weight:300;overflow-x:hidden;line-height:1.6;min-height:100vh;display:flex;flex-direction:column}
     body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.03'/%3E%3C/svg%3E");pointer-events:none;z-index:0;opacity:.5}
-
     @keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
     .anim-up{opacity:0;transform:translateY(24px);transition:all .6s cubic-bezier(.22,1,.36,1)}
     .anim-up.visible{opacity:1;transform:translateY(0)}
@@ -32,18 +31,15 @@
     h1 em{font-style:normal;background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
     .page-sub{margin-top:12px;font-size:14px;color:var(--muted);max-width:550px;line-height:1.75}
 
-    /* ── Quick stats bar ── */
     .stats-bar{position:relative;z-index:1;padding:24px 72px;background:var(--surface);border-bottom:1px solid var(--border);display:flex;gap:48px;flex-wrap:wrap}
     .qstat{display:flex;flex-direction:column}
     .qstat-val{font-family:'Playfair Display',serif;font-size:28px;font-weight:700;background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1}
     .qstat-label{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.18em;color:var(--faint);text-transform:uppercase;margin-top:4px}
 
-    /* ── Section ── */
     .content{position:relative;z-index:1;max-width:920px;margin:0 auto;padding:56px 72px 64px;width:100%}
     .sec-heading{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.3em;color:var(--accent);text-transform:uppercase;margin-bottom:32px;padding-bottom:12px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:12px}
     .sec-heading::before{content:'';width:4px;height:16px;background:var(--gradient);border-radius:2px}
 
-    /* ── Experience Block ── */
     .exp-block{margin-bottom:48px;padding-bottom:40px;border-bottom:1px solid var(--border)}
     .exp-block:last-of-type{border-bottom:none;padding-bottom:0}
     .exp-top{display:flex;justify-content:space-between;align-items:flex-start;gap:20px;flex-wrap:wrap;margin-bottom:6px}
@@ -55,11 +51,10 @@
     .exp-bullets{list-style:none;margin-top:16px;display:flex;flex-direction:column;gap:0}
     .exp-bullets li{font-size:14px;color:var(--muted);line-height:1.75;padding:6px 0 6px 20px;position:relative;border-bottom:1px solid rgba(42,48,64,.4)}
     .exp-bullets li:last-child{border-bottom:none}
-    .exp-bullets li::before{content:'›';position:absolute;left:0;color:var(--accent);font-family:'JetBrains Mono',monospace;font-weight:700}
+    .exp-bullets li::before{content:'-';position:absolute;left:4px;color:var(--accent);font-family:'JetBrains Mono',monospace;font-weight:700}
     .exp-skills{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
     .exp-chip{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.06em;text-transform:uppercase;padding:4px 10px;border-radius:4px;background:var(--accent-dim);border:1px solid rgba(201,168,76,.15);color:var(--accent)}
 
-    /* ── Education strip ── */
     .edu-strip{position:relative;z-index:1;padding:40px 72px;border-top:1px solid var(--border);background:var(--surface)}
     .edu-inner{max-width:920px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:24px}
     .edu-card{background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:24px;transition:all .3s}
@@ -68,7 +63,6 @@
     .edu-school{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--accent)}
     .edu-detail{font-size:12.5px;color:var(--muted);margin-top:6px;line-height:1.65}
 
-    /* ── Additional ── */
     .add-strip{position:relative;z-index:1;padding:40px 72px;border-top:1px solid var(--border)}
     .add-inner{max-width:920px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px}
     .add-card{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:20px;transition:all .3s}
@@ -93,7 +87,7 @@
   <div class="nav-links">
     <a class="nav-btn" href="index.html">Home</a>
     <a class="nav-btn" href="projects.html">Projects</a>
-    <a class="nav-btn active" href="career.html">Career</a>
+    <a class="nav-btn active" href="career.html">Resume</a>
     <a class="nav-btn" href="hobbies.html">Interests</a>
     <a class="nav-btn" href="contact.html">Contact</a>
   </div>
@@ -102,15 +96,14 @@
 <div class="page-header">
   <div class="page-eyebrow">Resume</div>
   <h1>Professional <em>Experience</em></h1>
-  <p class="page-sub">5+ years of hands-on mechanical engineering across aerospace manufacturing, product development, automation, and business development.</p>
+  <p class="page-sub">5+ years of hands-on mechanical engineering in aerospace manufacturing, product development, automation, and testing.</p>
 </div>
 
 <div class="stats-bar">
   <div class="qstat"><div class="qstat-val">5+</div><div class="qstat-label">Years Experience</div></div>
   <div class="qstat"><div class="qstat-val">4</div><div class="qstat-label">Companies</div></div>
-  <div class="qstat"><div class="qstat-val">30%</div><div class="qstat-label">RMA Reduction</div></div>
-  <div class="qstat"><div class="qstat-val">2×</div><div class="qstat-label">Production Doubled</div></div>
-  <div class="qstat"><div class="qstat-val">$50M+</div><div class="qstat-label">Quotations Developed</div></div>
+  <div class="qstat"><div class="qstat-val">60%+</div><div class="qstat-label">Faster Cycle Times</div></div>
+  <div class="qstat"><div class="qstat-val">48%</div><div class="qstat-label">Production Increase</div></div>
 </div>
 
 <div class="content">
@@ -121,22 +114,25 @@
       <div class="exp-company">Apollo Microwaves</div>
       <div class="exp-meta"><div class="exp-location">Montreal, QC</div></div>
     </div>
-    <div class="exp-role">Mechanical Engineer</div>
-    <div class="exp-period">Jan 2021 – Present</div>
+    <div class="exp-role">Mechanical Lead, Engineering (Jun 2025 to Present)</div>
+    <div class="exp-role" style="color:var(--text2)">Mechanical Engineer, Manufacturing (Jun 2023 to May 2025)</div>
+    <div class="exp-role" style="color:var(--text2)">Mechanical Engineering Intern / Co-op (Jan 2021 to May 2023)</div>
+    <div class="exp-period">Jan 2021 to Present</div>
     <ul class="exp-bullets">
-      <li>Spearheaded integrated R&D projects for aerospace products, aligning engineering design, manufacturing, and product development for over 5 years</li>
-      <li>Optimizing manufacturing processes — tube winding, heat treatment, electroless plating — through metallurgical research, reducing customer RMA by 30%</li>
-      <li>Improving production times by over 60% by developing induction brazing, welding, machining and 3D printing processes through thermal simulations</li>
-      <li>Automated machining by programming KUKA/EROWA robots using KRL, C++ and PLC — doubled production throughput</li>
-      <li>Developed 3D models using DFM principles in SolidWorks, Creo &amp; AutoCAD for new RF subcomponents and waveguide assemblies</li>
-      <li>Designed and assembled milling machine safety guards with automated power cutoff in-house at 20% of market price</li>
-      <li>Extensive CFD on ANSYS for high-pressure nozzle design and forced convection optimization</li>
-      <li>FEA for motion/stress study, fatigue testing, and thermal deformation simulation</li>
-      <li>Spearheading a machine to produce flexible twistable waveguides through roll-to-roll winding — reverse-engineered from patent drawings</li>
-      <li>Developing detailed documentation for testing data analysis and instruction manuals to train operators</li>
+      <li>Coordinated engineering design, manufacturing, and product development efforts for aerospace RF products across 5+ years, progressing from intern to mechanical lead</li>
+      <li>Modelled RF subcomponents, waveguide assemblies, diplexer cavities, and antenna feed structures in SolidWorks and Creo, applying GD&T and DFM principles throughout</li>
+      <li>Developed induction brazing, welding, and heat treatment processes through thermal simulation and metallurgical testing, improving production cycle times by over 60% compared to legacy methods</li>
+      <li>Standardized manufacturing processes and authored SOPs and training materials, which contributed to a measurable reduction in customer field returns</li>
+      <li>Troubleshot and maintained KUKA/EROWA robotic machining cells, diagnosing faults, optimizing scheduling, and helping increase throughput by approximately 48%</li>
+      <li>Designed and built an anechoic chamber and a thermal test chamber in-house for RF and environmental testing, eliminating reliance on external facilities</li>
+      <li>Contributed as a mechanical consultant to a planetary gear CVT project for an electric bicycle; the company filed a patent application based on the work</li>
+      <li>Designed a roll-to-roll winding machine to produce flexible twistable waveguides with tolerances under 0.001 inch, reverse-engineering the process from patent literature</li>
+      <li>Ran CFD in ANSYS to optimize a high-pressure multi-outlet nozzle, then 3D-printed and deployed the design in production</li>
+      <li>Created fixtures, jigs, and safety guards for CNC, brazing, and press operations, consistently applying DFM to keep costs down</li>
+      <li>Built a data integration system pulling real-time metrics from 30+ CNC machines into a SQL/Python dashboard for production monitoring</li>
     </ul>
     <div class="exp-skills">
-      <span class="exp-chip">SolidWorks</span><span class="exp-chip">Creo</span><span class="exp-chip">ANSYS</span><span class="exp-chip">KUKA KRL</span><span class="exp-chip">C++</span><span class="exp-chip">PLC</span><span class="exp-chip">CNC</span><span class="exp-chip">3D Printing</span><span class="exp-chip">Induction Brazing</span><span class="exp-chip">GD&T</span>
+      <span class="exp-chip">SolidWorks</span><span class="exp-chip">Creo</span><span class="exp-chip">ANSYS</span><span class="exp-chip">KUKA KRL</span><span class="exp-chip">C++</span><span class="exp-chip">PLC</span><span class="exp-chip">Python</span><span class="exp-chip">CNC</span><span class="exp-chip">3D Printing</span><span class="exp-chip">Induction Brazing</span><span class="exp-chip">GD&T</span><span class="exp-chip">SQL</span>
     </div>
   </div>
 
@@ -145,17 +141,17 @@
       <div class="exp-company">Velan Inc.</div>
       <div class="exp-meta"><div class="exp-location">Montreal, QC</div></div>
     </div>
-    <div class="exp-role">Mechanical Engineering Intern — Business Development</div>
-    <div class="exp-period">May 2022 – Dec 2022</div>
+    <div class="exp-role">Mechanical Engineering Intern, Business Development</div>
+    <div class="exp-period">May 2022 to Dec 2022</div>
     <ul class="exp-bullets">
-      <li>Collaborated with Severe Service Business Unit, contributing to product development and quotations with a team of 20+ engineers</li>
-      <li>Compiled and analyzed data from 500+ P&amp;IDs to identify Metal Seated Ball Valve opportunities — developed quotations totaling over $50M</li>
-      <li>Assisted in product lifecycle management, line drawings for patents and cost estimates for $20M+ valve programs with actuator selection</li>
-      <li>Managed 6+ control valve skid projects across quotation, design and business development teams</li>
-      <li>Automated customer datasheets and enhanced data analytics using Python, VB, and SQL</li>
+      <li>Worked within the Severe Service Business Unit alongside 20+ engineers, contributing to product development and customer quotation packages</li>
+      <li>Analyzed over 500 P&amp;IDs to identify Metal Seated Ball Valve opportunities for oil refinery clients, helping develop quotations totaling over $50M</li>
+      <li>Assisted with product lifecycle management, created line drawings for patent submissions, and prepared cost estimates for $20M+ valve programs</li>
+      <li>Managed 6+ control valve skid projects, coordinating across quotation, design, and business development teams</li>
+      <li>Automated customer datasheet generation and built data analytics scripts using Python, VB, and SQL to improve turnaround times</li>
     </ul>
     <div class="exp-skills">
-      <span class="exp-chip">Python</span><span class="exp-chip">VB</span><span class="exp-chip">SQL</span><span class="exp-chip">PLM</span><span class="exp-chip">P&ID Analysis</span><span class="exp-chip">Business Dev.</span>
+      <span class="exp-chip">Python</span><span class="exp-chip">VB</span><span class="exp-chip">SQL</span><span class="exp-chip">PLM</span><span class="exp-chip">P&amp;ID Analysis</span><span class="exp-chip">Quotation Dev.</span>
     </div>
   </div>
 
@@ -167,8 +163,8 @@
     <div class="exp-role">Robotics Instructor</div>
     <div class="exp-period">Summer 2022</div>
     <ul class="exp-bullets">
-      <li>Taught introductory robotics and coding to classes of 10–15 middle school students</li>
-      <li>Developed engaging curriculum with activities and experiments — received overwhelmingly positive reviews from parents</li>
+      <li>Taught introductory robotics and coding to classes of 10 to 15 middle school students</li>
+      <li>Designed a hands-on curriculum with activities and experiments that received positive feedback from parents</li>
     </ul>
   </div>
 
@@ -177,46 +173,46 @@
       <div class="exp-company">IO Solutions</div>
       <div class="exp-meta"><div class="exp-location">Montreal, QC</div></div>
     </div>
-    <div class="exp-role">Sales Representative</div>
-    <div class="exp-period">Jan 2020 – Mar 2021</div>
+    <div class="exp-role">Sales Representative (Part-Time)</div>
+    <div class="exp-period">Dec 2019 to Dec 2020</div>
     <ul class="exp-bullets">
-      <li>Reached target 90% of the time providing support and selling new products to customers</li>
-      <li>Best salesman of the month 4 times — exercised strong communication and client relationship skills</li>
+      <li>Consistently met sales targets (90%+ of months) while providing customer support and onboarding new products</li>
+      <li>Recognized as top salesperson of the month on four occasions</li>
     </ul>
   </div>
 
-  <div class="sec-heading anim-up">Skills &amp; Applications</div>
+  <div class="sec-heading anim-up">Skills and Applications</div>
   <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:32px" class="anim-up">
     <span class="exp-chip">SolidWorks</span><span class="exp-chip">CATIA</span><span class="exp-chip">Creo</span><span class="exp-chip">AutoCAD</span><span class="exp-chip">NX</span><span class="exp-chip">Python</span><span class="exp-chip">ANSYS</span><span class="exp-chip">MATLAB</span><span class="exp-chip">Simulink</span><span class="exp-chip">C++</span><span class="exp-chip">C#</span><span class="exp-chip">SQL</span><span class="exp-chip">KUKA KRL</span><span class="exp-chip">PLC</span><span class="exp-chip">MS Office</span>
   </div>
-  <div style="font-size:14px;color:var(--muted);line-height:1.8;margin-bottom:8px" class="anim-up"><strong style="color:var(--text);font-weight:500">Methodologies:</strong> &nbsp;Manufacturing Process Development · Mechanical Design · FEA · CFD · Automation Integration · Product Development · GD&T · DFM</div>
+  <div style="font-size:14px;color:var(--muted);line-height:1.8;margin-bottom:8px" class="anim-up"><strong style="color:var(--text);font-weight:500">Methodologies:</strong> Manufacturing Process Development, Mechanical Design, FEA, CFD, Automation Integration, Product Development, GD&T, DFM</div>
 </div>
 
 <div class="edu-strip">
   <div class="edu-inner">
     <div class="edu-card anim-up">
-      <div class="edu-degree">B.Eng Mechanical Engineering</div>
-      <div class="edu-school">Concordia University · Co-op</div>
-      <div class="edu-detail">Engweek Design Competition Winner · Stress &amp; Design Analyst at Space Concordia Rocketry · Relevant courses: Thermodynamics, Control Systems, Fluid Mechanics, Mechatronics</div>
+      <div class="edu-degree">B.Eng Mechanical Engineering (Co-op)</div>
+      <div class="edu-school">Concordia University, Montreal - 2019 to 2023</div>
+      <div class="edu-detail">Engweek Design Competition Winner. Stress and Design Analyst at Space Concordia: Rocketry Structures. Key courses: Thermodynamics, Control Systems, Fluid Mechanics, Mechatronics and Automation, Machine Element Design.</div>
     </div>
     <div class="edu-card anim-up">
-      <div class="edu-degree">DEC — Pure &amp; Applied Sciences</div>
-      <div class="edu-school">Dawson College · Montreal</div>
-      <div class="edu-detail">Exchange year in Theoretical Physics at University of Malaya, Malaysia · Bangladesh Youth Leadership Center graduate</div>
+      <div class="edu-degree">BSc Theoretical Physics (2 semesters)</div>
+      <div class="edu-school">University of Malaya, Kuala Lumpur - 2018</div>
+      <div class="edu-detail">Completed two semesters of undergraduate theoretical physics before transferring to engineering. Bangladesh Youth Leadership Center graduate.</div>
     </div>
   </div>
 </div>
 
 <div class="add-strip">
   <div class="add-inner">
-    <div class="add-card anim-up"><div class="add-label">P.Eng Status</div><div class="add-val">Eligible &amp; in process of E.I.T. registration to obtain P.Eng. Certification (OIQ)</div></div>
-    <div class="add-card anim-up"><div class="add-label">Languages</div><div class="add-val">English (Fluent) · French (Beginner) · Bengali (Native)</div></div>
-    <div class="add-card anim-up"><div class="add-label">Interests</div><div class="add-val">Astronomy · Chess · Guitar · Football · Formula 1 · Video Games</div></div>
+    <div class="add-card anim-up"><div class="add-label">P.Eng Status</div><div class="add-val">Eligible for E.I.T. registration toward P.Eng. Certification (OIQ)</div></div>
+    <div class="add-card anim-up"><div class="add-label">Languages</div><div class="add-val">English (Fluent), French (Intermediate, B2), Bengali (Native)</div></div>
+    <div class="add-card anim-up"><div class="add-label">Interests</div><div class="add-val">Astronomy, Chess, Guitar, Football, Formula 1, Video Games</div></div>
   </div>
 </div>
 
 <footer>
-  <span class="footer-text"><a href="mailto:khondokarnazmus.sakib@mail.concordia.ca">khondokarnazmus.sakib@mail.concordia.ca</a> · +1 514 578 6234</span>
+  <span class="footer-text"><a href="mailto:khondokarnazmus.sakib@mail.concordia.ca">khondokarnazmus.sakib@mail.concordia.ca</a> - +1 514 578 6234</span>
   <span class="footer-text">Hosted on <a href="https://pages.github.com" target="_blank">GitHub Pages</a></span>
 </footer>
 
@@ -224,8 +220,7 @@
 const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('visible')})},{threshold:.1,rootMargin:'0px 0px -40px 0px'});
 document.querySelectorAll('.anim-up').forEach(el=>obs.observe(el));
 window.addEventListener('scroll',()=>{document.getElementById('main-nav').classList.toggle('scrolled',window.scrollY>40)});
-const glow=document.getElementById('cursor-glow');
-document.addEventListener('mousemove',e=>{glow.style.left=e.clientX+'px';glow.style.top=e.clientY+'px'});
+const glow=document.getElementById('cursor-glow');document.addEventListener('mousemove',e=>{glow.style.left=e.clientX+'px';glow.style.top=e.clientY+'px'});
 </script>
 </body>
 </html>
