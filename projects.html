@@ -67,7 +67,7 @@
     @keyframes modalIn{from{opacity:0;transform:translateY(20px) scale(.98)}to{opacity:1;transform:translateY(0) scale(1)}}
     .modal-close{position:absolute;top:16px;right:16px;background:var(--surface2);border:1px solid var(--border);color:var(--muted);font-family:'JetBrains Mono',monospace;font-size:14px;width:36px;height:36px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s;z-index:10;border-radius:8px}
     .modal-close:hover{border-color:var(--accent);color:var(--accent);background:var(--surface)}
-
+   
     /* ── HEADER IMAGE ── */
     .modal-hero{position:relative;width:100%;background:var(--surface);border-bottom:1px solid var(--border);overflow:hidden;border-radius:12px 12px 0 0}
     .modal-hero img,.modal-hero video{width:100%;aspect-ratio:16/9;object-fit:cover;display:block}
@@ -76,30 +76,30 @@
     .img-note{padding:14px 20px;background:var(--surface);border-bottom:1px solid var(--border);font-family:'JetBrains Mono',monospace;font-size:10.5px;color:var(--muted);line-height:1.6}
     .img-note code{background:var(--surface2);padding:2px 6px;border-radius:3px;font-size:10px;color:var(--accent)}
     .img-note em{color:var(--accent);font-style:normal}
-
-    /* ── BOTTOM GALLERY GRID ── */
+    
+    /* ── BOTTOM GALLERY GRID ── */  
     .bottom-gallery{margin-top:24px;padding-top:20px;border-top:1px solid var(--border)}
     .bottom-gallery-label{font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:.2em;color:var(--accent);text-transform:uppercase;margin-bottom:12px}
     .bottom-gallery-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:8px}
     .bottom-gallery-grid.has-wide{grid-template-columns:1fr 1fr}
-    .bg-item{border-radius:8px;overflow:hidden;border:1px solid var(--border);transition:all .25s;cursor:pointer;position:relative}
+    .bg-item{border-radius:8px;overflow:hidden;border:1px solid var(--border);transition:all .25s;cursor:pointer}
     .bg-item:hover{border-color:var(--accent);transform:scale(1.02)}
     .bg-item img,.bg-item video{width:100%;display:block;object-fit:cover}
     .bg-item img{min-height:120px;max-height:300px}
+
     /* lightbox */
     .lightbox{display:none;position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:300;align-items:center;justify-content:center;padding:40px;cursor:zoom-out}
     .lightbox.open{display:flex}
     .lightbox img,.lightbox video{max-width:95%;max-height:90vh;object-fit:contain;border-radius:8px}
-
     .modal-body{padding:36px 44px 44px}
     .modal-eyebrow{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.22em;color:var(--faint);text-transform:uppercase;margin-bottom:8px}
-    .modal-title{font-family:'Playfair Display',serif;font-size:30px;font-weight:700;color:var(--text);margin-bottom:5px;line-height:1.15;letter-spacing:-.01em}
+    .modal-title{font-family:'Playfair Display',serif;font-size:28px;font-weight:700;color:var(--text);margin-bottom:5px;line-height:1.15;letter-spacing:-.01em}
     .modal-org{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--accent);letter-spacing:.06em;text-transform:uppercase;margin-bottom:18px}
     .modal-tags{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:22px}
     .modal-desc{font-size:14px;line-height:1.8;color:var(--text2);margin-bottom:22px}
     .modal-bullets{list-style:none;margin-bottom:26px}
     .modal-bullets li{font-size:13.5px;line-height:1.72;color:var(--muted);padding:7px 0 7px 22px;border-bottom:1px solid var(--border);position:relative}
-    .modal-bullets li::before{content:'›';position:absolute;left:0;color:var(--accent);font-family:'JetBrains Mono',monospace;font-weight:700}
+    .modal-bullets li::before{content:'-';position:absolute;left:4px;color:var(--accent);font-family:'JetBrains Mono',monospace;font-weight:700}
     .modal-specs{display:grid;grid-template-columns:repeat(auto-fill,minmax(148px,1fr));gap:14px;background:var(--surface);border:1px solid var(--border);padding:20px;margin-bottom:10px;border-radius:8px}
     .spec-label{font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:.16em;color:var(--faint);text-transform:uppercase;margin-bottom:4px}
     .spec-value{font-family:'JetBrains Mono',monospace;font-size:12.5px;color:var(--accent);font-weight:500}
@@ -125,125 +125,192 @@ const ME={email:"khondokarnazmus.sakib@mail.concordia.ca",phone:"+1 514 578 6234
    matching filters. `tags` are the tech/tool pills on the card.
    `images` array: first = header thumbnail, rest = grid below text.
 ════════════════════════════════════════════════════════════════ */
+
 const FILTER_CATS = [
   "All",
   "Design",
   "Analysis",
   "Manufacturing",
   "R&D / Product Dev.",
-  "Robotics & Automation",
-  "Sales Eng. / Business Dev.",
+  "Robotics and Automation",
+  "Testing",
 ];
 
 const PROJECTS = [
+
   {
-    id:1,title:"CNC Data Systems Integration",year:"2024",org:"Apollo Microwaves",
-    categories:["Manufacturing","Robotics & Automation"],
-    tags:["C#","SQL Server","Python","Pandas","Dash / Flask"],
-    desc:"Built a full-stack system to extract real-time operational data from 30+ CNC machines, store it in SQL Server, and surface KPIs through a live web dashboard.",
-    bullets:["Designed a C# integration layer to pull real-time data from 30+ CNC machines into SQL Server","Wrote SQL queries and used Python/Pandas for advanced KPI extraction and trend analysis","Deployed a Dash/Flask web application for on-demand data visualization and machine performance monitoring"],
-    specs:{"Machines":"30+","Backend":"C# + SQL Server","Frontend":"Python Dash/Flask","Analysis":"Pandas"},
-    images:[],
-  },
-  {
-    id:2,title:"XY Gantry & Rotary Actuator System",year:"2024",org:"Apollo Microwaves",
-    categories:["Design","Robotics & Automation","R&D / Product Dev."],
+    id:19,title:"XY Gantry and Rotary Actuator System",year:"2026",org:"Apollo Microwaves",
+    categories:["Design","Robotics and Automation","R&D / Product Dev.","Testing"],
     tags:["SolidWorks","Stepper Motors","Control Systems","Precision"],
-    desc:"Developing a custom XY gantry and precision rotary actuator for automated RF testing — 0.001\" linear and 0.1° angular accuracy.",
-    bullets:["Designed XY gantry frame and custom rotary actuator from scratch in SolidWorks","Integrated stepper motor drivers and wrote control logic for sub-millimeter precision","Targets 0.001\" linear and 0.1° angular positioning accuracy"],
-    specs:{"Linear Accuracy":"0.001\"","Angular Accuracy":"0.1°","Actuation":"Stepper Motors","Status":"In Development"},
-    images:[],
+    desc:"Designed a custom XY gantry and precision rotary actuator from scratch for automated RF testing, targeting 0.001\" linear and 0.1 degree angular accuracy.",
+    bullets:["Modelled the full gantry frame and rotary actuator assembly in SolidWorks","Integrated stepper motor drivers and wrote control logic for sub-millimeter positioning","Currently being commissioned for in-house antenna pattern testing"],
+    specs:{"Linear Accuracy":"0.001\"","Angular Accuracy":"0.1 deg","Actuation":"Stepper Motors","Status":"In Development"},
+    images:["Images/XY Gantry rotary actuator/Image 1.png","Images/XY Gantry rotary actuator/Image 2.png", "Images/XY Gantry rotary actuator/Image 3.png", "Images/XY Gantry rotary actuator/Image 4.png"],
   },
   {
-    id:3,title:"Anechoic Chamber Design & Build",year:"2024",org:"Apollo Microwaves",
-    categories:["Design","Manufacturing","R&D / Product Dev."],
+    id:18,title:"Anechoic Chamber Design and Build",year:"2026",org:"Apollo Microwaves",
+    categories:["Design","Manufacturing","R&D / Product Dev.","Testing"],
     tags:["RF Testing","Structural Design","K-Band","Satellite"],
-    desc:"Lead design and construction of an in-house anechoic chamber for RF testing of satellite antenna feeds up to K-band frequencies.",
-    bullets:["Led full chamber design: geometry, absorber layout, and structural frame","Coordinated construction and commissioning for K-band antenna feed testing","Eliminated need for external RF test facility, reducing cost and lead time"],
-    specs:{"Frequency Range":"Up to K-Band","Application":"Satellite Antenna Feed","Type":"Anechoic Chamber","Lead":"Design & Build"},
+    desc:"Led the design and construction of an in-house anechoic chamber for RF testing of satellite antenna feeds up to K-band frequencies, removing the need for an external test facility.",
+    bullets:["Owned the full chamber design: room geometry, absorber selection and layout, structural frame","Coordinated construction trades and managed commissioning for K-band antenna feed testing","Eliminated dependency on external RF test facilities, cutting both cost and lead time"],
+    specs:{"Frequency Range":"Up to K-Band","Application":"Satellite Antenna Feed","Type":"Anechoic Chamber","Lead":"Design and Build"},
+    images:["Images/Anechoic chamber/Image 2.png", "Images/Anechoic chamber/Image 1.jpg"],
+  },
+  {
+    id:17,title:"Thermal Test Chamber Development",year:"2025",org:"Apollo Microwaves",
+    categories:["Design","Testing","R&D / Product Dev."],
+    tags:["Thermal Design","Temperature Control","Instrumentation","Aerospace"],
+    desc:"Designed and built a thermal test chamber (essentially a precision oven) for qualifying aerospace RF components at controlled temperatures with uniform heat distribution.",
+    bullets:["Defined chamber geometry, insulation strategy, and heating element layout to achieve target temperature range","Instrumented the chamber with thermocouples and validated uniform temperature distribution across the test volume","Developed test procedures for thermal cycling and qualification of RF subcomponents"],
+    specs:{"Type":"Thermal Chamber","Application":"Component Qualification","Control":"Temperature Uniformity","Industry":"Aerospace RF"},
+    images:["Images/Oven/Image 1.jpg", "Images/Oven/Image 2.png", "Images/Oven/Image 3.png"],
+  },
+  {
+    id:16,title:"Electric Bicycle CVT System",year:"2025",org:"Wolff Bicycles (Apollo Microwaves)",
+    categories:["Design","Analysis","R&D / Product Dev.", "Robotics and Automation" ],
+    tags:["Creo","Planetary Gears","PID Control","Prototyping"],
+    desc:"Contributed as a mechanical engineering consultant to the development of a novel continuously variable transmission using a planetary gear differential for an electric bicycle. The company filed a patent application based on this work.",
+    bullets:["Performed dynamic hand calculations and kinematic analysis for the planetary gear differential concept","Built and iterated the 3D model in Creo, running stress analysis and FMEA to validate the design","Supported PID-based motor control integration and participated in prototype assembly and bench testing","The project advanced to an operational prototype stage; a patent application was filed by the company"],
+    specs:{"Mechanism":"Planetary Gear CVT","Control":"PID Motor Control","Stage":"Prototype","IP":"Patent Application Filed"},
+    images:["Images/Electric Bicycle CVT System/Image 1.png","Images/Electric Bicycle CVT System/Image 2.png","Images/Electric Bicycle CVT System/Image 3.png","Images/Electric Bicycle CVT System/Image 4.png","Images/Electric Bicycle CVT System/Image 5.png", "Images/Electric Bicycle CVT System/Image 6.png"],
+  },
+  {
+    id:15,title:"CNC Data Systems Integration",year:"2025",org:"Apollo Microwaves",
+    categories:["Manufacturing","Robotics and Automation"],
+    tags:["C#","SQL Server","Python","Pandas","Dash / Flask"],
+    desc:"Developed a full-stack system that pulls real-time operational data from 10+ CNC machines into SQL Server, then presents KPIs through a live web dashboard for the production team.",
+    bullets:["Built a C# integration layer to collect live data from 10+ CNC machines using OPC UA Protocol and FANUC Focus","Store the retreived data in SQL Server",
+    "Wrote SQL queries and Python/Pandas scripts for KPI extraction and trend analysis",
+    "Deployed a Dash/Flask web application so the team could monitor machine performance on demand"],
+    specs:{"Machines":"10+","Backend":"C# + SQL Server","Frontend":"Python Dash/Flask","Analysis":"Pandas"},
     images:[],
   },
   {
-    id:4,title:"Electric Bicycle CVT System",year:"2023",org:"Wolff Bicycles (Apollo Microwaves)",
-    categories:["Design","Analysis","R&D / Product Dev."],
-    tags:["Creo","Planetary Gears","PID Control","Patent","TRL-7"],
-    desc:"Designed a novel CVT using a planetary gear differential for an electric bicycle. Patent filed. Integrated with motor and PID control — achieved Technology Readiness Level 7.",
-    bullets:["Developed novel CVT concept using planetary gear differential with full dynamic hand calculations","Built 3D model in Creo; conducted stress analysis, FMEA for performance and reliability","Developed PID-based motor control system for enhanced efficiency and precision","Filed for patent and achieved TRL-7 through integration and testing"],
-    specs:{"Mechanism":"Planetary Gear CVT","Control":"PID Motor Control","TRL":"Level 7","IP":"Patent Filed"},
-      images: ["Images/Electric Bicycle CVT System/Image 1.png", "Images/Electric Bicycle CVT System/Image 2.png", "Images/Electric Bicycle CVT System/Image 3.png", "Images/Electric Bicycle CVT System/Image 4.png", "Images/Electric Bicycle CVT System/Image 5.png" ],
-  },
-  {
-    id:5,title:"High Pressure Multi-Outlet Nozzle",year:"2023",org:"Apollo Microwaves",
+    id:14,title:"High Pressure Multi-Outlet Nozzle",year:"2024",org:"Apollo Microwaves",
     categories:["Analysis","Design","Manufacturing"],
     tags:["ANSYS Workbench","CFD","3D Printing","Aerospace"],
-    desc:"Designed and 3D-printed a multi-outlet nozzle for high-pressure liquid flow, enabling multi-stage aerospace-grade cleaning.",
-    bullets:["Ran CFD in ANSYS Workbench to map velocity, pressure, and flow distribution across all outlets","Iterated geometry to optimize flow uniformity while maintaining required pressure at each stage","3D-printed functional prototypes for validation and deployed in production"],
+    desc:"Designed and 3D-printed a multi-outlet nozzle for high-pressure liquid flow to support multi-stage cleaning in aerospace manufacturing.",
+    bullets:["Ran CFD simulations in ANSYS Workbench to map velocity, pressure, and flow distribution across all outlets","Iterated on the geometry to balance flow uniformity while maintaining required pressure at each stage","3D-printed functional prototypes, validated performance, and deployed the final design in production"],
     specs:{"Application":"Aerospace MFG Cleaning","Method":"CFD + FDM","Software":"ANSYS Workbench","Standard":"Aerospace"},
-    images:[],
+    images:["Images/capture1.png"],
   },
   {
-    id:6,title:"Flexible Twistable Waveguide Machine",year:"2023",org:"Apollo Microwaves",
+    id:13,title:"Flexible Twistable Waveguide Production",year:"2023",org:"Apollo Microwaves",
     categories:["Design","Manufacturing","R&D / Product Dev."],
     tags:["SolidWorks","Sheet Metal Sim","Reverse Engineering","RF"],
-    desc:"Designed and troubleshot a roll-to-roll winding machine to produce flexible RF waveguides with tolerances under 0.001\". Process reverse-engineered from patent drawings.",
-    bullets:["Reverse-engineered roll-to-roll forming process from patent literature through analytical calculations","Ran sheet metal formation simulations to validate winding kinematics","Achieved dimensional tolerance < 0.001\" on finished waveguide profiles"],
-    specs:{"Tolerance":"< 0.001\"","Process":"Roll-to-Roll Winding","Domain":"RF Waveguides","Software":"SolidWorks"},
+    desc:"Designed and troubleshot a roll-to-roll winding machine to produce flexible RF waveguides with tolerances under 0.001 inch. Reverse-engineered the forming process from patent drawings.",
+    bullets:["Reverse-engineered the roll-to-roll forming process from patent literature using analytical calculations","Ran sheet metal formation simulations to validate winding kinematics and tool clearances","Achieved dimensional tolerance under 0.001 inch on finished waveguide profiles"],
+    specs:{"Tolerance":"< 0.001 in","Process":"Roll-to-Roll Winding","Domain":"RF Waveguides","Software":"SolidWorks"},
+    images:["Images/Flex twist development/WR340 Mandrel.png", "Images/Flex twist development/WGT 410 roller.png"],
+  },
+  {
+    id:12,title:"Diplexer Cavities and Irises Design",year:"2024",org:"Apollo Microwaves",
+    categories:["Design","Analysis","R&D / Product Dev."],
+    tags:["SolidWorks","CNC","GD&T","RF Design"],
+    desc:"Developed detailed 3D models and manufacturing drawings for diplexer cavity components used in satellite communication systems, working closely with the RF engineering team.",
+    bullets:["Created SolidWorks models and fully dimensioned drawings with GD&T for CNC machining","Coordinated with RF engineers to ensure mechanical tolerances met electrical performance requirements","Iterated designs through multiple prototyping rounds to resolve manufacturing challenges"],
+    specs:{"Application":"Satellite Comms","Software":"SolidWorks","Standards":"GD&T","Process":"CNC Machining"},
+    images:["Images/Diplexer/Capture 1.png", "Images/Diplexer/Capture.png", "Images/Diplexer/Al @90.PNG", "Images/Diplexer/Steel @90C.PNG"],
+  },
+  {
+    id:11,title:"Assembly Jigs development",year:"2022-2024",org:"Apollo Microwaves",
+    categories:["Design","Manufacturing","Testing"],
+    tags:["SolidWorks","Fixturing","Assembly","RF"],
+    desc:"Designed assembly fixtures and jigs for antenna feed products, enabling repeatable and efficient production of complex multi-part RF assemblies.",
+    bullets:["Designed custom fixtures in SolidWorks to hold and align antenna feed subcomponents during brazing and assembly","Applied DFM principles to ensure fixtures could be machined in-house with existing tooling","Improved assembly consistency and reduced operator setup time across the antenna feed product line"],
+    specs:{"Product":"Antenna Feeds","Software":"SolidWorks","Approach":"DFM","Purpose":"Assembly and Brazing"},
+    images:["Images/Antenna feed assembly jigs/Jig 1.png", "Images/Antenna feed assembly jigs/Jig 2.png" ],
+  },
+  {
+    id:10,title:"Process napping & time study",year:"2025",org:"Apollo Microwaves",
+    categories:["Analysis","Manufacturing"],
+    tags:["MS Excel","Assembly","RF"],
+    desc:"Designed assembly fixtures and jigs for antenna feed products, enabling repeatable and efficient production of complex multi-part RF assemblies.",
+    bullets:["Designed custom fixtures in SolidWorks to hold and align antenna feed subcomponents during brazing and assembly","Applied DFM principles to ensure fixtures could be machined in-house with existing tooling","Improved assembly consistency and reduced operator setup time across the antenna feed product line"],
+    specs:{"Product":"Antenna Feeds","Software":"SolidWorks","Approach":"DFM","Purpose":"Assembly and Brazing"},
     images:[],
   },
   {
-    id:7,title:"Induction Brazing Process Development",year:"2021–2024",org:"Apollo Microwaves",
+    id:190,title:"Induction Brazing Process Development",year:"2021-2024",org:"Apollo Microwaves",
     categories:["Manufacturing","Analysis","R&D / Product Dev."],
     tags:["Induction Brazing","Thermal Simulation","Metallurgy","Aerospace"],
-    desc:"Developed and optimized induction brazing, welding, and heat treatment processes for aerospace RF components — cutting cycle times by 60%+ and reducing customer RMA by 30%.",
-    bullets:["Performed thermal simulations to define induction coil geometry and power profiles","Conducted metallurgical testing to validate joint integrity to aerospace standards","Reduced customer RMA by 30% through rigorous process standardization","Authored work instructions and tutorial videos for production team knowledge transfer"],
-    specs:{"Cycle Time Reduction":"> 60%","RMA Reduction":"30%","Industry":"Aerospace RF","Output":"SOPs + Videos"},
-    images:[],
+    desc:"Developed and refined induction brazing, welding, and heat treatment processes for aerospace RF components, significantly cutting cycle times and improving joint quality.",
+    bullets:["Ran thermal simulations to define induction coil geometry and power profiles for each part family","Conducted metallurgical cross-sections and testing to validate joint integrity against aerospace standards","Standardized processes and authored SOPs and training videos, which helped reduce field returns","Improved production cycle times by over 60% compared to legacy furnace brazing methods"],
+    specs:{"Cycle Time":"60%+ Faster","Industry":"Aerospace RF","Output":"SOPs and Training","Method":"Induction Brazing"},
+    images:["Images/Soldering/Soldering 2.png", "Images/Soldering/Soldering.png", "Images/Soldering/E bend cast jig.PNG", "Images/Soldering/IMG-1948.jpg", "Images/Soldering/IMG-6319.jpg"],
   },
   {
-    id:8,title:"KUKA / EROWA Machining Automation",year:"2021–2024",org:"Apollo Microwaves",
-    categories:["Robotics & Automation","Manufacturing"],
+    id:8,title:"Induction Coil Development",year:"2022",org:"Apollo Microwaves",
+    categories:["Manufacturing","Analysis","R&D / Product Dev."],
+    tags:["Induction Brazing","Thermal Simulation","Metallurgy","Aerospace"],
+    desc:"Developed and refined induction brazing, welding, and heat treatment processes for aerospace RF components, significantly cutting cycle times and improving joint quality.",
+    bullets:["Ran thermal simulations to define induction coil geometry and power profiles for each part family","Conducted metallurgical cross-sections and testing to validate joint integrity against aerospace standards","Standardized processes and authored SOPs and training videos, which helped reduce field returns","Improved production cycle times by over 60% compared to legacy furnace brazing methods"],
+    specs:{"Cycle Time":"60%+ Faster","Industry":"Aerospace RF","Output":"SOPs and Training","Method":"Induction Brazing"},
+    images:["Images/Soldering/Soldering 2.png", "Images/Soldering/Soldering.png", "Images/Soldering/E bend cast jig.PNG", "Images/Soldering/IMG-1948.jpg", "Images/Soldering/IMG-6319.jpg"],
+  },
+  {
+    id:7,title:"KUKA / EROWA Machining Automation",year:"2021-2024",org:"Apollo Microwaves",
+    categories:["Robotics and Automation","Manufacturing"],
     tags:["KUKA Robotics","KRL","C++","PLC","CNC"],
-    desc:"Automated CNC machining cells using KUKA/EROWA robots — doubling production throughput through custom KRL, C++, and PLC programming.",
-    bullets:["Programmed KUKA robots using KRL and C++ for part handling and machine tending","Integrated PLC logic for safety interlocks and process sequencing","Diagnosed and resolved robot faults to minimize unplanned downtime","Doubled production capacity through end-to-end cell automation"],
-    specs:{"Platform":"KUKA + EROWA","Languages":"KRL / C++ / PLC","Result":"2× Production","Downtime":"Reduced"},
+    desc:"Supported and troubleshot automated CNC machining cells using KUKA/EROWA robots, focusing on fault diagnosis, process optimization, and reducing unplanned downtime.",
+    bullets:["Troubleshot KUKA robot faults and maintained automation cells to minimize unplanned downtime","Assisted with KRL and PLC programming for part handling, machine tending, and safety interlocks","Optimized cell scheduling and handoff sequences, contributing to a measurable increase in throughput","Documented troubleshooting procedures and created reference guides for the production team"],
+    specs:{"Platform":"KUKA + EROWA","Languages":"KRL / C++ / PLC","Focus":"Troubleshooting","Result":"Reduced Downtime"},
     images:[],
   },
   {
-    id:9,title:"CNC & Hydraulic Press Fixtures",year:"2021–2024",org:"Apollo Microwaves",
+    id:6,title:"Soldering and Hydraulic Press Fixtures",year:"2021-2024",org:"Apollo Microwaves",
     categories:["Design","Manufacturing"],
     tags:["SolidWorks","GD&T","CNC","DFM"],
-    desc:"Designed fixtures and jigs in SolidWorks for CNC machining, induction brazing, and hydraulic press operations across multiple aerospace product lines.",
+    desc:"Designed fixtures and jigs in SolidWorks for machining, induction brazing, and hydraulic press operations across multiple aerospace product lines.",
     bullets:["Applied GD&T and DFM principles to ensure repeatable setup and ease of manufacture","Designed modular fixtures to accommodate multiple part variants on the same setup","Reduced setup time and operator error across CNC and press operations"],
     specs:{"Software":"SolidWorks","Standards":"ASME Y14.5 GD&T","Processes":"CNC / Brazing / Press","Approach":"DFM"},
-    images:[],
+    images:["Images/Diplexer/Capture 1.png" ],
   },
   {
-    id:10,title:"Milling Machine Safety Guard",year:"2022",org:"Apollo Microwaves",
-    categories:["Design","Manufacturing"],
+    id:5,title:"Milling Machine Safety Guard",year:"2022",org:"Apollo Microwaves",
+    categories:["Design","Manufacturing", "R&D / Product Dev."],
     tags:["In-House Fabrication","Safety Systems","Machining"],
-    desc:"Designed, machined, and assembled a milling machine safety guard with automated power cutoff in-house — at 20% of commercial market price.",
-    bullets:["Designed full guard enclosure and interlocked automatic power cutoff from first principles","Machined and assembled all components in-house using available shop tooling","Delivered production-ready solution at 20% of commercial market price"],
-    specs:{"Cost vs Market":"20%","Method":"In-House Fab","Feature":"Auto Power Cutoff","Status":"In Production"},
+    desc:"Designed, machined, and assembled a milling machine safety guard with automated power cutoff entirely in-house, delivering it at roughly 20% of what a commercial solution would have cost.",
+    bullets:["Designed the full guard enclosure and interlocked automatic power cutoff from first principles","Machined and assembled all components using available shop tooling","Delivered a production-ready safety solution at a fraction of commercial pricing"],
+    specs:{"Cost":"~20% of Commercial","Method":"In-House Fab","Feature":"Auto Power Cutoff","Status":"In Production"},
     images:[],
   },
   {
-    id:11,title:"Cargo Velocipede — Adaptive Bike Trailer",year:"2022",org:"Concordia University — Capstone",
-    categories:["Design","Analysis","R&D / Product Dev."],
+    id:4,title:"Cargo Velocipede - Adaptive Bike Trailer",year:"2023",org:"Concordia University - Capstone",
+    categories:["Design","Analysis","R&D / Product Dev.", "Manufacturing"],
     tags:["FEA","SolidWorks","Prototyping","Team Project"],
-    desc:"Designed and manufactured a collapsible bike trailer for a child with cerebral palsy as a 6-person Capstone project — concept through prototype.",
-    bullets:["Led 3D modelling and FEA to validate structural integrity under dynamic loads","Coordinated testing procedures and technical documentation across the team","Overcame manufacturing challenges to deliver functional prototype on schedule"],
-    specs:{"Team":"6 Engineers","Course":"Capstone Design","Year":"2022","Methods":"FEA · DFM · Fabrication"},
+    desc:"Designed and manufactured a collapsible bike trailer for a child with cerebral palsy as a 6-person Capstone project, taking the product from concept through a working prototype.",
+    bullets:["Led 3D modelling and ran FEA to validate structural integrity under dynamic loads","Coordinated testing procedures and technical documentation across the team","Navigated manufacturing challenges to deliver a functional prototype on schedule"],
+    specs:{"Team":"6 Engineers","Course":"Capstone Design","Year":"2022","Methods":"FEA, DFM, Fabrication"},
     images:[],
   },
   {
-    id:12,title:"Arduino Autonomous Robot",year:"2022",org:"Concordia University",
-    categories:["Robotics & Automation","R&D / Product Dev."],
+    id:3,title:"Adaptive Wheelchair Design",year:"2021",org:"Concordia University",
+    categories:["Design","Analysis","R&D / Product Dev."],
+    tags:["SolidWorks","FEA","Ergonomics","Accessibility"],
+    desc:"Designed a wheelchair for a person with one functional arm and one functional leg as a university design project, focusing on ergonomics, one-handed steering, and manufacturability.",
+    bullets:["Developed the full wheelchair frame and drive mechanism in SolidWorks with one-handed operation in mind","Ran FEA to validate frame strength and analyze stress concentrations under typical loading","Iterated on the design based on ergonomic feedback and DFM constraints"],
+    specs:{"Software":"SolidWorks","Analysis":"FEA","Focus":"Accessibility","Course":"Design Project"},
+    images:[],
+  },
+  {
+    id:2,title:"Arduino Autonomous Robot",year:"2023",org:"Concordia University",
+    categories:["Robotics and Automation","R&D / Product Dev."],
     tags:["Arduino","C++","PID Control","Embedded Systems","Sensors"],
-    desc:"Built an autonomous robot car featuring registry-level microcontroller programming, PID-based cruise and traction control, and 10+ sensor types.",
-    bullets:["Programmed at registry level using custom Arduino libraries for sensor fusion and motor control","Implemented cruise control and traction control using PID algorithms","Integrated 10+ sensor types for environmental awareness and smooth navigation","Applied OOP principles and algorithm optimization for memory and time efficiency"],
+    desc:"Built an autonomous robot car with registry-level microcontroller programming, PID-based cruise and traction control, and integration of 10+ sensor types.",
+    bullets:["Programmed at the registry level using custom Arduino libraries for sensor fusion and motor control","Implemented cruise control and traction control using PID algorithms","Integrated 10+ sensor types including ultrasonic, IR, and encoders for environment awareness","Applied OOP principles and optimized algorithms for memory management and responsiveness"],
     specs:{"Platform":"Arduino","Language":"C++","Control":"PID","Sensors":"10+ Types"},
     images:[],
   },
+    {
+    id:1,title:"ThermoCar",year:"2022",org:"Concordia University",
+    categories:["Design","R&D / Product Dev."],
+    tags:["Thermodynamics","Electronics","3D printing"],
+    desc:"Designed and 3D printed a PLA car powered by the Peltier effect.",
+    bullets:["Used a candle to heat a peltier device that would generate a small voltage","Directed this current to power a DC motor and optimized the design to provide smooth motion"],
+    specs:{"Platform":"Arduino","Language":"C++","Control":"PID","Sensors":"10+ Types"},
+    images:[],
+  }
 ];
 </script>
 
@@ -252,7 +319,7 @@ const PROJECTS = [
   <div class="nav-links">
     <a class="nav-btn" href="index.html">Home</a>
     <a class="nav-btn active" href="projects.html">Projects</a>
-    <a class="nav-btn" href="career.html">Career</a>
+    <a class="nav-btn" href="career.html">Resume</a>
     <a class="nav-btn" href="hobbies.html">Interests</a>
     <a class="nav-btn" href="contact.html">Contact</a>
   </div>
@@ -273,11 +340,11 @@ const PROJECTS = [
 </div>
 
 <main class="grid" id="grid"></main>
-
 <!-- MODAL -->
+
 <div class="modal-overlay" id="modal-overlay" onclick="closeModal(event)">
   <div class="modal" onclick="event.stopPropagation()">
-    <button class="modal-close" onclick="closeModal(null)">✕</button>
+    <button class="modal-close" onclick="closeModal(null)">&#x2715;</button>
     <div id="m-hero"></div>
     <div class="modal-body">
       <div class="modal-eyebrow" id="m-eyebrow"></div>
@@ -293,9 +360,7 @@ const PROJECTS = [
 </div>
 
 <!-- LIGHTBOX -->
-<div class="lightbox" id="lightbox" onclick="closeLightbox()">
-  <div id="lightbox-content"></div>
-</div>
+<div class="lightbox" id="lightbox" onclick="closeLightbox()"><div id="lightbox-content"></div></div>
 
 <footer>
   <span class="footer-text"><a id="f-email" href="#"></a></span>
@@ -305,60 +370,23 @@ const PROJECTS = [
 <script>
 document.getElementById('f-email').textContent=ME.email;
 document.getElementById('f-email').href='mailto:'+ME.email;
+/* Auto project count */
 document.getElementById('proj-header-right').innerHTML=PROJECTS.length+' projects<br>'+(FILTER_CATS.length-1)+' disciplines';
 
 /* ── Filter Buttons (multi-category) ── */
+
 let active='All';
 const fb=document.getElementById('filter-bar');
 const cl=document.getElementById('count-label');
-FILTER_CATS.forEach(cat=>{
-  const btn=document.createElement('button');
-  btn.className='filter-btn'+(cat==='All'?' active':'');
-  btn.textContent=cat;
-  btn.addEventListener('click',()=>{
-    active=cat;
-    document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
-    btn.classList.add('active');
-    applyFilter();
-  });
-  fb.insertBefore(btn,cl);
-});
-
-/* ── Render Cards ── */
+FILTER_CATS.forEach(cat=>{const btn=document.createElement('button');btn.className='filter-btn'+(cat==='All'?' active':'');btn.textContent=cat;btn.addEventListener('click',()=>{active=cat;document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));btn.classList.add('active');applyFilter()});fb.insertBefore(btn,cl)});
+ /* ── Render Cards ── */
 const grid=document.getElementById('grid');
-PROJECTS.forEach((p,i)=>{
-  const card=document.createElement('div');
-  card.className='card anim-up';
-  card.dataset.categories=JSON.stringify(p.categories);
-  card.style.transitionDelay=(i%6)*.05+'s';
-  const thumb=p.images&&p.images.length?p.images[0]:'';
-  card.innerHTML=`
-    ${thumb?`<img class="card-image" src="${thumb}" alt="${p.title}" loading="lazy"/>`:`<div class="card-image-placeholder"><span class="placeholder-icon">⚙</span></div>`}
-    <div class="card-body">
-      <div class="card-top"><div class="card-title">${p.title}</div><div class="card-year">${p.year}</div></div>
-      <div class="card-org">${p.org}</div>
-      <div class="card-desc">${p.desc}</div>
-      <div class="card-footer">
-        ${p.categories.map(c=>`<span class="tag cat-tag">${c}</span>`).join('')}
-        ${p.tags.map(t=>`<span class="tag">${t}</span>`).join('')}
-      </div>
-    </div>`;
-  card.addEventListener('click',()=>openModal(p));
-  grid.appendChild(card);
-});
+PROJECTS.forEach((p,i)=>{const card=document.createElement('div');card.className='card anim-up';card.dataset.categories=JSON.stringify(p.categories);card.style.transitionDelay=(i%6)*.05+'s';const thumb=p.images&&p.images.length?p.images[0]:'';card.innerHTML=`${thumb?`<img class="card-image" src="${thumb}" alt="${p.title}" loading="lazy"/>`:`<div class="card-image-placeholder"><span class="placeholder-icon">&#x2699;</span></div>`}<div class="card-body"><div class="card-top"><div class="card-title">${p.title}</div><div class="card-year">${p.year}</div></div><div class="card-org">${p.org}</div><div class="card-desc">${p.desc}</div><div class="card-footer">${p.categories.map(c=>`<span class="tag cat-tag">${c}</span>`).join('')}${p.tags.map(t=>`<span class="tag">${t}</span>`).join('')}</div></div>`;card.addEventListener('click',()=>openModal(p));grid.appendChild(card)});
 
-function applyFilter(){
-  let n=0;
-  document.querySelectorAll('.card').forEach(c=>{
-    const cats=JSON.parse(c.dataset.categories);
-    const show=active==='All'||cats.includes(active);
-    c.classList.toggle('hidden',!show);if(show)n++;
-  });
-  cl.innerHTML=`<span>${n}</span>&thinsp;/&thinsp;${PROJECTS.length} projects`;
-}
+function applyFilter(){let n=0;document.querySelectorAll('.card').forEach(c=>{const cats=JSON.parse(c.dataset.categories);const show=active==='All'||cats.includes(active);c.classList.toggle('hidden',!show);if(show)n++});cl.innerHTML=`<span>${n}</span> / ${PROJECTS.length} projects`}
 applyFilter();
 
-/* ── Modal ── */
+ /* ── Modal ── */
 function isVid(s){return /\.(mp4|webm|ogg)$/i.test(s)}
 function mediaEl(src){return isVid(src)?`<video src="${src}" controls muted style="width:100%;display:block"></video>`:`<img src="${src}" alt="Project" style="width:100%;display:block"/>`}
 
@@ -371,59 +399,24 @@ function openModal(p){
   document.getElementById('m-desc').textContent=p.desc;
   document.getElementById('m-bullets').innerHTML=(p.bullets||[]).map(b=>`<li>${b}</li>`).join('');
   document.getElementById('m-specs').innerHTML=Object.entries(p.specs||{}).map(([k,v])=>`<div><div class="spec-label">${k}</div><div class="spec-value">${v}</div></div>`).join('');
-
   /* Header image */
   const hero=document.getElementById('m-hero');
-  if(!imgs.length){
-    hero.innerHTML=`<div class="img-note"><em>📷 Add images:</em> set <code>images: ["img1.jpg","img2.jpg",...]</code> in the PROJECTS array.</div><div class="modal-hero"><div class="modal-hero-placeholder">⚙</div></div>`;
-  } else {
-    hero.innerHTML=`<div class="modal-hero">${mediaEl(imgs[0])}</div>`;
-  }
-
+  if(!imgs.length){hero.innerHTML=`<div class="img-note"><em>Add images:</em> set <code>images: ["img1.jpg",...]</code> in the PROJECTS array.</div><div class="modal-hero"><div class="modal-hero-placeholder">&#x2699;</div></div>`}else{hero.innerHTML=`<div class="modal-hero">${mediaEl(imgs[0])}</div>`}
   /* Bottom gallery grid */
   const bg=document.getElementById('m-bottom-gallery');
-  if(imgs.length<=1){bg.innerHTML='';} else {
-    const rest=imgs.slice(1);
-    bg.innerHTML=`<div class="bottom-gallery">
-      <div class="bottom-gallery-label">Project Gallery — ${imgs.length} images</div>
-      <div class="bottom-gallery-grid${rest.length<=4?' has-wide':''}">
-        ${rest.map((src,i)=>`<div class="bg-item" onclick="event.stopPropagation();openLightbox('${src.replace(/'/g,"\\'")}')">${mediaEl(src)}</div>`).join('')}
-      </div>
-    </div>`;
-  }
-
-  document.getElementById('modal-overlay').classList.add('open');
-  document.body.style.overflow='hidden';
+  if(imgs.length<=1){bg.innerHTML=''}else{const rest=imgs.slice(1);bg.innerHTML=`<div class="bottom-gallery"><div class="bottom-gallery-label">Project Gallery - ${imgs.length} images</div><div class="bottom-gallery-grid${rest.length<=4?' has-wide':''}">${rest.map(src=>`<div class="bg-item" onclick="event.stopPropagation();openLightbox('${src.replace(/'/g,"\\'")}')">${mediaEl(src)}</div>`).join('')}</div></div>`}
+  document.getElementById('modal-overlay').classList.add('open');document.body.style.overflow='hidden';
 }
-
-function closeModal(e){
-  if(e&&e.target!==document.getElementById('modal-overlay'))return;
-  document.getElementById('modal-overlay').classList.remove('open');
-  document.body.style.overflow='';
-  document.querySelectorAll('video').forEach(v=>{if(v.pause)v.pause()});
-}
-
-/* Lightbox */
-function openLightbox(src){
-  const lb=document.getElementById('lightbox');
-  document.getElementById('lightbox-content').innerHTML=isVid(src)?`<video src="${src}" controls autoplay style="max-width:95%;max-height:90vh;border-radius:8px"></video>`:`<img src="${src}" alt="Full view"/>`;
-  lb.classList.add('open');
-}
+function closeModal(e){if(e&&e.target!==document.getElementById('modal-overlay'))return;document.getElementById('modal-overlay').classList.remove('open');document.body.style.overflow='';document.querySelectorAll('video').forEach(v=>{if(v.pause)v.pause()})}
+ /* Lightbox */
+function openLightbox(src){document.getElementById('lightbox-content').innerHTML=isVid(src)?`<video src="${src}" controls autoplay style="max-width:95%;max-height:90vh;border-radius:8px"></video>`:`<img src="${src}" alt="Full view"/>`;document.getElementById('lightbox').classList.add('open')}
 function closeLightbox(){document.getElementById('lightbox').classList.remove('open')}
-
-document.addEventListener('keydown',e=>{
-  if(e.key==='Escape'){
-    if(document.getElementById('lightbox').classList.contains('open')) closeLightbox();
-    else closeModal(null);
-  }
-});
-
-/* Scroll animations */
+document.addEventListener('keydown',e=>{if(e.key==='Escape'){if(document.getElementById('lightbox').classList.contains('open'))closeLightbox();else closeModal(null)}});
+ /* Scroll animations */
 const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('visible')})},{threshold:.05,rootMargin:'0px 0px -30px 0px'});
 document.querySelectorAll('.anim-up').forEach(el=>obs.observe(el));
 window.addEventListener('scroll',()=>{document.getElementById('main-nav').classList.toggle('scrolled',window.scrollY>40)});
-const glow=document.getElementById('cursor-glow');
-document.addEventListener('mousemove',e=>{glow.style.left=e.clientX+'px';glow.style.top=e.clientY+'px'});
+const glow=document.getElementById('cursor-glow');document.addEventListener('mousemove',e=>{glow.style.left=e.clientX+'px';glow.style.top=e.clientY+'px'});
 </script>
 </body>
 </html>
