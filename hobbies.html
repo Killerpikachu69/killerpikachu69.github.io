@@ -190,11 +190,16 @@
 </div>
 
 <footer>
-  <span class="footer-text"><a href="/cdn-cgi/l/email-protection#0e656661606a61656f7c606f74637b7d207d6f65676c4e636f6762206d61606d617c6a676f206d6f"><span class="__cf_email__" data-cfemail="c3a8abacada7aca8a2b1ada2b9aeb6b0edb0a2a8aaa183aea2aaafeda0acada0acb1a7aaa2eda0a2">[email&#160;protected]</span></a> · +1 514 578 6234</span>
+  <span class="footer-text"><a href="mailto:khondokarnazmus.sakib@mail.concordia.ca">khondokarnazmus.sakib@mail.concordia.ca</a> - +1 514 578 6234</span>
   <span class="footer-text">Hosted on <a href="https://pages.github.com" target="_blank">GitHub Pages</a></span>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
 const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('visible')})},{threshold:.1,rootMargin:'0px 0px -40px 0px'});
 document.querySelectorAll('.anim-up').forEach(el=>obs.observe(el));
-window.addEventListener('scrol
+window.addEventListener('scroll',()=>{document.getElementById('main-nav').classList.toggle('scrolled',window.scrollY>40)});
+const glow=document.getElementById('cursor-glow');
+document.addEventListener('mousemove',e=>{glow.style.left=e.clientX+'px';glow.style.top=e.clientY+'px'});
+</script>
+</body>
+</html>
